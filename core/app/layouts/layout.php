@@ -19,6 +19,7 @@
 <script src='assets/fullcalendar/moment.min.js'></script>
 <script src='assets/fullcalendar/fullcalendar.min.js'></script>
 <script src='assets/fullcalendar/locale-all.js'></script>
+<script src='assets/js/sweetalert2.all.js'></script>
 <?php endif; ?>
 
 </head>
