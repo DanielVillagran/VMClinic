@@ -36,12 +36,12 @@ class ItemData
     }
 
 
-    public function updateItem()
+    public function update()
     {
         $sql = "update " . self::$tablename . " 
         set name=\"$this->name\",
 		quantity=\"$this->quantity\",
-		date=\"$this->date\",
+		date=\"$this->date\"
 		 
 		where id=$this->id";
         Executor::doit($sql);
@@ -51,7 +51,7 @@ class ItemData
     {
         $sql = "select * from " . self::$tablename . " where id=$id";
         $query = Executor::doit($sql);
-        return Model::one($query[0], new PacientData());
+        return Model::one($query[0], new ItemData());
     }
 
 
@@ -59,7 +59,7 @@ class ItemData
     {
         $sql = "select * from " . self::$tablename . " order by name desc";
         $query = Executor::doit($sql);
-        return Model::many($query[0], new PacientData());
+        return Model::many($query[0], new ItemData());
     }
 
 
@@ -68,7 +68,7 @@ class ItemData
     {
         $sql = "select * from " . self::$tablename . " where title like '%$q%' or email like '%$q%'";
         $query = Executor::doit($sql);
-        return Model::many($query[0], new PacientData());
+        return Model::many($query[0], new ItemData());
     }
 
 

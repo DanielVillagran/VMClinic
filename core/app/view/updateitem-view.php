@@ -6,7 +6,7 @@ if(count($_POST)>0){
 	$item->quantity = $_POST["quantity"];
 	$item->date = $_POST["date"];
 
-	$item->updateItem();
+	$item->update();
 
 Core::alert("Actualizado exitosamente!");
 print "<script>window.location='index.php?view=items';</script>";
