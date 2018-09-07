@@ -1,0 +1,9 @@
+create table items
+(
+  id       int auto_increment
+    primary key,
+  name     varchar(100) null,
+  quantity int(100)     null,
+  date     varchar(100) null
+);
+
