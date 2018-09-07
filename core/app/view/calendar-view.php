@@ -33,15 +33,24 @@ foreach($events as $event){
 					text: 'Por que razon no estara disponibles el '+date.format()+"?",
 					input:'text',
 					showCancelButton: true,
-					closeOnConfirm: false
+					
 				}).then((result) => {
 					var inputValue=result.value;
+					//swal.close();
 					if (inputValue == "" || inputValue == null) {
 						swal("Error","Necesitas escribir un motivo!");
 						return false
 					}else{
-
-						swal("Nice!", "You wrote: " + inputValue, "success");
+						$.ajax({
+							url:"core/app/querys/insert_reservation.php",
+							type:'post',
+							data: {'titulo': inputValue,'fecha':date.format()},
+							dataType:'json',
+							success(data) {
+							}
+						});
+						swal("Listo!", "Agendado con exito.", "success");	
+						window.location='index.php?view=calendar';
 					}
 				});
 				$(this).css('background-color', 'green');
