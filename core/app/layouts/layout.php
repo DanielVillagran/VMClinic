@@ -68,6 +68,12 @@
                       </a>
                   </li>
                   <li>
+                      <a href="./?view=items">
+                          <i class="fa fa-database"></i>
+                          <p>Articulos</p>
+                      </a>
+                  </li>
+                  <li>
                       <a href="./?view=categories">
                           <i class="fa fa-th-list"></i>
                           <p>Categorias</p>
