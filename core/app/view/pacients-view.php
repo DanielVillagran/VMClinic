@@ -26,6 +26,7 @@
 
 			<table class="table table-bordered table-hover">
 			<thead>
+			<th>Folio</th>
 			<th>Nombre completo</th>
 			<th>Direccion</th>
 			<th>Email</th>
@@ -36,6 +37,13 @@
 			foreach($users as $user){
 				?>
 				<tr>
+				<td><?php $constante="RG-";
+						for($i=4;$i>=strlen($user->id);$i--){
+							$constante.="0";
+						} 
+						$constante.=$user->id;
+					echo $constante; ?>		
+				</td>
 				<td><?php echo $user->name." ".$user->lastname; ?></td>
 				<td><?php echo $user->address; ?></td>
 				<td><?php echo $user->email; ?></td>
