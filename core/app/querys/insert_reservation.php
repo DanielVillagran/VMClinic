@@ -10,5 +10,5 @@ $reservation->time_at="08:00";
 $reservation->type="2";
 $reservation->created_at="NOW()";
 R::store($reservation);
-echo "ok";
+echo "<script>window.location='index.php?view=calendar';</script>";
 ?>

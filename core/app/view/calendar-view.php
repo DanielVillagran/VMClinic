@@ -49,11 +49,24 @@ foreach($events as $event){
 							success(data) {
 							}
 						});
-						swal("Listo!", "Agendado con exito.", "success");	
-						window.location='index.php?view=calendar';
+						//swal("Listo!", "Agendado con exito.", "success");	
+						//window.location='index.php?view=calendar';
+						swal({
+							title: 'Listo!',
+							text: "Se ha gruardado la incidencia con exito!",
+							type: 'success',
+							showCancelButton: false,
+							confirmButtonColor: '#3085d6',
+							cancelButtonColor: '#d33',
+							confirmButtonText: 'Perfecto!'
+						}).then((result) => {
+							if (result.value) {
+								window.location='index.php?view=calendar';
+							}
+						})
 					}
 				});
-				$(this).css('background-color', 'green');
+				//$(this).css('background-color', 'green');
 			}
 		});
 
