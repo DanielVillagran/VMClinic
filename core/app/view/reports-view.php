@@ -86,7 +86,7 @@ $payments = PaymentData::getAll();
 		<?php
 $users= array();
 if((isset($_GET["status_id"]) && isset($_GET["payment_id"]) && isset($_GET["pacient_id"]) && isset($_GET["medic_id"]) && isset($_GET["start_at"]) && isset($_GET["finish_at"]) ) && ($_GET["status_id"]!="" ||$_GET["payment_id"]!="" || $_GET["pacient_id"]!="" || $_GET["medic_id"]!="" || ($_GET["start_at"]!="" && $_GET["finish_at"]!="") ) ) {
-$sql = "select * from reservation where ";
+$sql = "select * from reservation where (type=1 or type=3) and ";
 if($_GET["status_id"]!=""){
 	$sql .= " status_id = ".$_GET["status_id"];
 }
@@ -127,6 +127,7 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_G
 //echo $sql;
 		$users = ReservationData::getBySQL($sql);
 
+
 }else{
 		$users = ReservationData::getAllPendings();
 
@@ -151,12 +152,21 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_G
 			<?php
 			$total = 0;
 			foreach($users as $user){
-				$pacient  = $user->getPacient();
+				if(isset($user->pacient_id)&&$user->pacient_id!=""){
+					$pacient  = $user->getPacient();
+				}
 				$medic = $user->getMedic();
 				?>
 				<tr>
 				<td><?php echo $user->title; ?></td>
-				<td><?php echo $pacient->name." ".$pacient->lastname; ?></td>
+				<td><?php 
+				if(isset($user->pacient_id)&&$user->pacient_id!=""){
+					echo $pacient->name." ".$pacient->lastname; 
+				}else{
+					echo $user->name;
+				}
+				?>	
+				</td>
 				<td><?php echo $medic->name." ".$medic->lastname; ?></td>
 				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
 				<td><?php echo $user->getStatus()->name; ?></td>
@@ -179,7 +189,7 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_G
 
 
 		}else{
-			echo "<p class='alert alert-danger'>No hay pacientes</p>";
+			echo "<p class='alert alert-danger'>No hay Citas.</p>";
 		}
 
 
