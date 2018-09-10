@@ -10,7 +10,7 @@ $payments = PaymentData::getAll();
 
 <div class="card">
   <div class="card-header" data-background-color="blue">
-      <h4 class="title">Modificar Cita</h4>
+      <h4 class="title">Modificar Cita Rapida</h4>
   </div>
   <div class="card-content table-responsive">
 <form class="form-horizontal" role="form" method="post" action="./?action=updatefastreservation">
