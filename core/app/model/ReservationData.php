@@ -21,6 +21,11 @@ class ReservationData {
 		$sql .= "value (\"$this->title\",\"$this->note\",\"$this->medic_id\",\"$this->date_at\",\"$this->time_at\",$this->pacient_id,$this->user_id,\"$this->price\",$this->status_id,$this->payment_id,\"$this->sick\",\"$this->symtoms\",\"$this->medicaments\",1,$this->created_at)";
 		return Executor::doit($sql);
 	}
+	public function addfast(){
+		$sql = "insert into reservation (title,note,medic_id,date_at,time_at,user_id,price,status_id,payment_id,sick,symtoms,medicaments,type,created_at,name,phone,address) ";
+		$sql .= "value (\"$this->title\",\"$this->note\",\"$this->medic_id\",\"$this->date_at\",\"$this->time_at\",$this->user_id,\"$this->price\",$this->status_id,$this->payment_id,\"$this->sick\",\"$this->symtoms\",\"$this->medicaments\",3,$this->created_at,\"$this->name\",\"$this->phone\",\"$this->address\")";
+		return Executor::doit($sql);
+	}
 
 	public static function delById($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
@@ -34,6 +39,10 @@ class ReservationData {
 // partiendo de que ya tenemos creado un objecto ReservationData previamente utilizamos el contexto
 	public function update(){
 		$sql = "update ".self::$tablename." set title=\"$this->title\",pacient_id=\"$this->pacient_id\",medic_id=\"$this->medic_id\",date_at=\"$this->date_at\",time_at=\"$this->time_at\",note=\"$this->note\",sick=\"$this->sick\",symtoms=\"$this->symtoms\",medicaments=\"$this->medicaments\",status_id=\"$this->status_id\",payment_id=\"$this->payment_id\",price=\"$this->price\" where id=$this->id";
+		Executor::doit($sql);
+	}
+	public function updatefast(){
+		$sql = "update ".self::$tablename." set title=\"$this->title\",medic_id=\"$this->medic_id\",date_at=\"$this->date_at\",time_at=\"$this->time_at\",note=\"$this->note\",sick=\"$this->sick\",symtoms=\"$this->symtoms\",medicaments=\"$this->medicaments\",status_id=\"$this->status_id\",payment_id=\"$this->payment_id\",price=\"$this->price\",name=\"$this->name\",phone=\"$this->phone\",address=\"$this->address\" where id=$this->id";
 		Executor::doit($sql);
 	}
 
@@ -65,7 +74,12 @@ class ReservationData {
 
 
 	public static function getAll(){
-		$sql = "select * from ".self::$tablename." where date(date_at)>=date(NOW()) order by date_at";
+		$sql = "select * from ".self::$tablename." where type=1 and date(date_at)>=date(NOW()) order by date_at";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new ReservationData());
+	}
+	public static function getAllfast(){
+		$sql = "select * from ".self::$tablename." where type=3 and date(date_at)>=date(NOW()) order by date_at";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ReservationData());
 	}

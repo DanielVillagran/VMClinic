@@ -6,6 +6,8 @@ foreach($events as $event){
 		$thejson[] = array("title"=>$event->title,"url"=>"./?view=editreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
 	}else if($event->type=="2"){
 		$thejson[] = array("title"=>$event->title,"url"=>"#","start"=>$event->date_at."T".$event->time_at);
+	}else{
+		$thejson[] = array("title"=>$event->title,"url"=>"./?view=editfastreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
 	}
 }
 ?>

@@ -19,6 +19,7 @@
   </div>
   <div class="card-content table-responsive">
 <a href="./index.php?view=newreservation" class="btn btn-info">Nueva Cita</a>
+<a href="./index.php?view=newfastreservation" class="btn btn-warning">Nueva Cita Rapida</a>
 <a href="./index.php?view=oldreservations" class="btn btn-default">Citas Anteriores</a>
 <br><br>
 <form class="form-horizontal" role="form">
@@ -74,7 +75,7 @@ $medics = MedicData::getAll();
 		<?php
 $users= array();
 if((isset($_GET["q"]) && isset($_GET["pacient_id"]) && isset($_GET["medic_id"]) && isset($_GET["date_at"])) && ($_GET["q"]!="" || $_GET["pacient_id"]!="" || $_GET["medic_id"]!="" || $_GET["date_at"]!="") ) {
-$sql = "select * from reservation where ";
+$sql = "select * from reservation where type=1 and ";
 if($_GET["q"]!=""){
 	$sql .= " title like '%$_GET[q]%' and note like '%$_GET[q] %' ";
 }
@@ -105,12 +106,16 @@ if($_GET["q"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ){
 }
 
 		$users = ReservationData::getBySQL($sql);
+		$sql=str_replace("type=1","type=3",$sql);
+		$sql=str_replace("pacient_id =","pacient_id !=",$sql);
+		$users2 = ReservationData::getBySQL($sql);
 
 }else{
 		$users = ReservationData::getAll();
+		$users2 = ReservationData::getAllfast();
 
 }
-		if(count($users)>0){
+		if(count($users)>0||count($users2)>0){
 			// si hay usuarios
 			?>
 			<table class="table table-bordered table-hover">
@@ -133,6 +138,24 @@ if($_GET["q"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ){
 				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
 				<td style="width:180px;">
 				<a href="index.php?view=editreservation&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
+				<a href="index.php?action=delreservation&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
+				</td>
+				</tr>
+				<?php
+
+			}
+			?>
+			<?php
+			foreach($users2 as $user){
+				$medic = $user->getMedic();
+				?>
+				<tr>
+				<td><?php echo $user->title; ?></td>
+				<td><?php echo $user->name; ?></td>
+				<td><?php echo $medic->name." ".$medic->lastname; ?></td>
+				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
+				<td style="width:180px;">
+				<a href="index.php?view=editfastreservation&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
 				<a href="index.php?action=delreservation&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
 				</td>
 				</tr>
