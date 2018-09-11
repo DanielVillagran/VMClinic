@@ -30,12 +30,21 @@
 			</thead>
 			<?php
 			foreach($users as $user){
-				$pacient  = $user->getPacient();
+				if(isset($user->pacient_id)&&$user->pacient_id!=""){
+					$pacient  = $user->getPacient();
+				}
 				$medic = $user->getMedic();
 				?>
 				<tr>
 				<td><?php echo $user->title; ?></td>
-				<td><?php echo $pacient->name." ".$pacient->lastname; ?></td>
+				<td><?php 
+				if(isset($user->pacient_id)&&$user->pacient_id!=""){
+					echo $pacient->name." ".$pacient->lastname; 
+				}else{
+					echo $user->name;
+				}
+				?>	
+				</td>
 				<td><?php echo $medic->name." ".$pacient->lastname; ?></td>
 				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
 				<td style="width:130px;">
@@ -50,7 +59,7 @@
 
 
 		}else{
-			echo "<p class='alert alert-danger'>No hay pacientes</p>";
+			echo "<p class='alert alert-danger'>No hay citas.</p>";
 		}
 
 
