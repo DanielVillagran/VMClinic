@@ -7,9 +7,9 @@ foreach($events as $event){
 ?>
 <div class="row">
 <div class="col-md-12">
-<div class="card" style="text-align: center;">
+<div class="" style="text-align: center;">
 
-<img class="img-responsive" src="assets/images/logo.jpeg" style="width: 80%; margin-left: 10%;">
+<img class="img-responsive" src="assets/images/logo.png" style="width: 80%; margin-left: 10%;">
 </div>
 </div>
 </div>

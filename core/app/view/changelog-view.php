@@ -1,7 +1,7 @@
 <div class="row">
 <div class="col-md-12">
-<h1>Sistema de Citas Medicas</h1>
-<p>Bienvenido a <b>VMClinic</b> un Sistema de Citas Medicas util para consultorios medicos y/o medicos independientes.</p>
+<h1>Bio Clinic: Estética, Longevidad y Obesidad</p></h1>
+<p>Bienvenido a <b>Bio Clinic</b> Estética, Longevidad y Obesidad</p>
 <h4> v2.0</h4>
 <ul>
 	<li>Nuevos campos en pacientes: genero, fecha de nacimiento, enfermedad, medicamento, alergia</li>

@@ -45,7 +45,7 @@
 			// si hay usuarios
 					?>
 
-					<table class="table table-bordered table-hover">
+					<table class="table table-bordered table-hover table-responsive">
 						<thead>
 							<th>Folio</th>
 							<th>Nombre completo</th>
@@ -69,11 +69,15 @@
 							<td><?php echo $user->address; ?></td>
 							<td><?php echo $user->email; ?></td>
 							<td><?php echo $user->phone; ?></td>
-							<td style="width:280px;">
+							<td style="width:270px;">
 								<a href="index.php?view=pacienthistory&id=<?php echo $user->id;?>" class="btn btn-default btn-xs">Historial</a>
 								<a href="index.php?view=editpacient&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
 								<a href="index.php?view=delpacient&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
-							</td>
+                                <a href="mailto:<?php echo $user->email;?>?subject=Dieta" class="btn btn-default btn-xs">Enviar Dieta</a>
+
+
+
+                            </td>
 						</tr>
 						<?php
 
