@@ -30,7 +30,7 @@
 <?php if(isset($_SESSION["user_id"])):?>
   <div class="wrapper">
 
-      <div class="sidebar" data-color="blue">
+      <div class="sidebar" data-color="blue" style="margin-bottom: -40px;">
       <div class="logo">
         <a href="./" class="simple-text">
             <img src="assets/images/logo.png" width="150px" alt="">
