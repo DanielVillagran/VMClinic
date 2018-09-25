@@ -2,8 +2,9 @@
 class Database {
 	public static $db;
 	public static $con;
+
 	function Database(){
-		$this->user="root";$this->pass="";$this->host="localhost";$this->ddbb="vmclinic";
+		$this->user="casamar5_uno";$this->pass="daniel200796";$this->host="localhost";$this->ddbb="casamar5_rgbioclinic";
 	}
 
 	function connect(){

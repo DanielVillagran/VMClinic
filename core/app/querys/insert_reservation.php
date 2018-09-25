@@ -1,8 +1,6 @@
 <?php
 
-require 'rb.php';
-R::setup( 'mysql:host=localhost;dbname=vmclinic',
-    'root', '' );
+require 'conexion.php';
 $reservation = R::dispense( 'reservation' );
 $reservation->title=$_POST['titulo'];
 $reservation->date_at=$_POST['fecha'];

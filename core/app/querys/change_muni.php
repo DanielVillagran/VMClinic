@@ -1,8 +1,6 @@
 <?php
 
-require 'rb.php';
-R::setup( 'mysql:host=localhost;dbname=vmclinic',
-    'root', '' );
+require 'conexion.php';
 $where='';
 if(isset($_POST['id'])){
   $lista=R::find( 'municipalities', ' state_id =  '.$_POST['id']);
