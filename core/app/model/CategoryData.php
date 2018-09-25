@@ -11,7 +11,7 @@ class CategoryData {
 		$this->created_at = "NOW()";
 	}
 
-	public function add(){
+	public static function add(){
 		$sql = "insert into category (name) ";
 		$sql .= "value (\"$this->name\")";
 		return Executor::doit($sql);
@@ -21,13 +21,13 @@ class CategoryData {
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);
 	}
-	public function del(){
+	public static function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
 		Executor::doit($sql);
 	}
 
 // partiendo de que ya tenemos creado un objecto CategoryData previamente utilizamos el contexto
-	public function update(){
+	public static function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
 		Executor::doit($sql);
 	}

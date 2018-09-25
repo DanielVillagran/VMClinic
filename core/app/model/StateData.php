@@ -6,7 +6,7 @@ class StateData
 
 
 
-    public function getStates()
+    public  function getStates()
     {
         $sql = "select * from " . self::$tablename . " order by name asc";
         $query = Executor::doit($sql);

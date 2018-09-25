@@ -11,7 +11,7 @@ class UserData {
 		$this->created_at = "NOW()";
 	}
 
-	public function add(){
+	public static function add(){
 		$sql = "insert into ".self::$tablename." (name,lastname,username,password,is_active,is_admin,created_at) ";
 		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->username\",\"$this->password\",$this->is_active,$this->is_admin,$this->created_at)";
 		Executor::doit($sql);
@@ -21,18 +21,18 @@ class UserData {
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);
 	}
-	public function del(){
+	public static function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
 		Executor::doit($sql);
 	}
 
 // partiendo de que ya tenemos creado un objecto UserData previamente utilizamos el contexto
-	public function update(){
+	public static function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\",lastname=\"$this->lastname\",username=\"$this->username\",is_active=$this->is_active,is_admin=$this->is_admin where id=$this->id";
 		Executor::doit($sql);
 	}
 
-	public function update_passwd(){
+	public static function update_passwd(){
 		$sql = "update ".self::$tablename." set password=\"$this->password\" where id=$this->id";
 		Executor::doit($sql);
 	}

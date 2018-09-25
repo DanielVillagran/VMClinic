@@ -12,7 +12,7 @@ class PostData {
 		$this->created_at = "NOW()";
 	}
 
-	public function add(){
+	public static function add(){
 		$sql = "insert into ".self::$tablename." (title,content,image,user_id,is_public,created_at) ";
 		$sql .= "value (\"$this->title\",\"$this->content\",\"$this->image\",$this->user_id,$this->is_public,$this->created_at)";
 		Executor::doit($sql);
@@ -22,13 +22,13 @@ class PostData {
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);
 	}
-	public function del(){
+	public static function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
 		Executor::doit($sql);
 	}
 
 // partiendo de que ya tenemos creado un objecto PostData previamente utilizamos el contexto
-	public function update(){
+	public static function update(){
 		$sql = "update ".self::$tablename." set title=\"$this->title\",content=\"$this->content\",image=\"$this->image\",is_public=\"$this->is_public\" where id=$this->id";
 		Executor::doit($sql);
 	}
