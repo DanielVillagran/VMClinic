@@ -2,13 +2,11 @@
 
 require 'conexion.php';
 $reservation = R::dispense( 'reservation' );
-$reservation->title=$_POST['titulo'];
-$reservation->date_at=$_POST['fecha'];
+$reservation->title="puto";
+$reservation->date_at="perro";
 $reservation->time_at="08:00";
 $reservation->type="2";
 $reservation->created_at="NOW()";
-$queryLogger = RedBean_Plugin_QueryLogger::getInstanceAndAttach(R::store($reservation));
-var_dump($queryLogger->getLogs());
-die();
+$id=R::store($reservation);
 echo "<script>window.location='index.php?view=calendar';</script>";
 ?>
