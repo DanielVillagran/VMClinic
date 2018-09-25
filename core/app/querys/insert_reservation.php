@@ -8,8 +8,7 @@ $reservation->time_at="08:00";
 $reservation->type="2";
 $reservation->created_at="NOW()";
 $queryLogger = RedBean_Plugin_QueryLogger::getInstanceAndAttach(R::store($reservation));
-$queryLogger->getLogs();
-var_dump($id);
+var_dump($queryLogger->getLogs());
 die();
 echo "<script>window.location='index.php?view=calendar';</script>";
 ?>
