@@ -10,9 +10,9 @@ class MedicData {
 		$this->created_at = "NOW()";
 	}
 
-	public static function getCategory(){ return CategoryData::getById($this->category_id); }
+	public function getCategory(){ return CategoryData::getById($this->category_id); }
 
-	public static function add(){
+	public function add(){
 		$sql = "insert into ".self::$tablename." (category_id,name,lastname,address,phone,email,created_at) ";
 		$sql .= "value ($this->category_id,\"$this->name\",\"$this->lastname\",\"$this->address\",\"$this->phone\",\"$this->email\",$this->created_at)";
 		Executor::doit($sql);
@@ -22,19 +22,19 @@ class MedicData {
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);
 	}
-	public static function del(){
+	public function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
 		Executor::doit($sql);
 	}
 
 // partiendo de que ya tenemos creado un objecto MedicData previamente utilizamos el contexto
-	public static function update_active(){
+	public function update_active(){
 		$sql = "update ".self::$tablename." set last_active_at=NOW() where id=$this->id";
 		Executor::doit($sql);
 	}
 
 
-	public static function update(){
+	public function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\",lastname=\"$this->lastname\",address=\"$this->address\",phone=\"$this->phone\",email=\"$this->email\",category_id=$this->category_id where id=$this->id";
 		Executor::doit($sql);
 	}
@@ -65,7 +65,7 @@ class MedicData {
 	}
 
 
-	public static function getUnreads(){ return MessageData::getUnreadsByClientId($this->id); }
+	public function getUnreads(){ return MessageData::getUnreadsByClientId($this->id); }
 
 
 	public static function getLike($q){

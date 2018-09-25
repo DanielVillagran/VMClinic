@@ -9,7 +9,7 @@ class ItemData
 
     }
 
-    public static function add()
+    public function add()
     {
         $sql = "insert into " . self::$tablename . " (name,quantity,date) ";
         $sql .= "value (\"$this->name\",\"$this->quantity\",\"$this->date\")";
@@ -22,21 +22,21 @@ class ItemData
         Executor::doit($sql);
     }
 
-    public static function del()
+    public function del()
     {
         $sql = "delete from " . self::$tablename . " where id=$this->id";
         Executor::doit($sql);
     }
 
 // partiendo de que ya tenemos creado un objecto PacientData previamente utilizamos el contexto
-    public static function update_active()
+    public function update_active()
     {
         $sql = "update " . self::$tablename . " set last_active_at=NOW() where id=$this->id";
         Executor::doit($sql);
     }
 
 
-    public static function update()
+    public function update()
     {
         $sql = "update " . self::$tablename . " 
         set name=\"$this->name\",

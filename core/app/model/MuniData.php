@@ -6,7 +6,7 @@ class MuniData
 
 
 
-    public function getMuni()
+    public static function getMuni()
     {
     	require 'rb.php';
     	R::setup( 'mysql:host=localhost;dbname=casamar5_rgbioclinic',

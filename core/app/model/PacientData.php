@@ -14,7 +14,7 @@ class PacientData
         $this->created_at = "NOW()";
     }
 
-    public static function add()
+    public function add()
     {
         $sql = "insert into " . self::$tablename . " (name,lastname,gender,day_of_birth,address,phone,email,sick,medicaments,alergy,created_at,second_lastname,curp,state,born_state,nacionality,localidad,municipal) ";
         $sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->gender\",\"$this->day_of_birth\",\"$this->address\",\"$this->phone\",\"$this->email\",\"$this->sick\",\"$this->medicaments\",\"$this->alergy\",\"$this->created_at\",\"$this->second_lastname\",\"$this->curp\",\"$this->state\",\"$this->born_state\",\"$this->nacionality\",\"$this->localidad\",\"$this->municipal\")";
@@ -27,21 +27,21 @@ class PacientData
         Executor::doit($sql);
     }
 
-    public static function del()
+    public function del()
     {
         $sql = "delete from " . self::$tablename . " where id=$this->id";
         Executor::doit($sql);
     }
 
 // partiendo de que ya tenemos creado un objecto PacientData previamente utilizamos el contexto
-    public static function update_active()
+    public function update_active()
     {
         $sql = "update " . self::$tablename . " set last_active_at=NOW() where id=$this->id";
         Executor::doit($sql);
     }
 
 
-    public static function update()
+    public function update()
     {
         $sql = "update " . self::$tablename . " set name=\"$this->name\",
 		lastname=\"$this->lastname\",
@@ -78,7 +78,7 @@ class PacientData
         return Model::many($query[0], new PacientData());
     }
 
-    public static function getStates()
+    public function getStates()
     {
         $sql = "select * from " . self::$tablename . " order by name asc";
         $query = Executor::doit($sql);
@@ -104,7 +104,7 @@ class PacientData
     }
 
 
-    public static function getUnreads()
+    public function getUnreads()
     {
         return MessageData::getUnreadsByClientId($this->id);
     }

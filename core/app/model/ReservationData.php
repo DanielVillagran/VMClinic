@@ -3,7 +3,7 @@ class ReservationData {
 	public static $tablename = "reservation";
 
 
-	public  function ReservationData(){
+	public function ReservationData(){
 		$this->name = "";
 		$this->lastname = "";
 		$this->email = "";
@@ -11,17 +11,17 @@ class ReservationData {
 		$this->created_at = "NOW()";
 	}
 
-	public static function getPacient(){ return PacientData::getById($this->pacient_id); }
-	public static function getMedic(){ return MedicData::getById($this->medic_id); }
-	public static function getStatus(){ return StatusData::getById($this->status_id); }
-	public static function getPayment(){ return PaymentData::getById($this->payment_id); }
+	public function getPacient(){ return PacientData::getById($this->pacient_id); }
+	public function getMedic(){ return MedicData::getById($this->medic_id); }
+	public function getStatus(){ return StatusData::getById($this->status_id); }
+	public function getPayment(){ return PaymentData::getById($this->payment_id); }
 
-	public static function add(){
+	public function add(){
 		$sql = "insert into reservation (title,note,medic_id,date_at,time_at,pacient_id,user_id,price,status_id,payment_id,sick,symtoms,medicaments,type,created_at) ";
 		$sql .= "value (\"$this->title\",\"$this->note\",\"$this->medic_id\",\"$this->date_at\",\"$this->time_at\",$this->pacient_id,$this->user_id,\"$this->price\",$this->status_id,$this->payment_id,\"$this->sick\",\"$this->symtoms\",\"$this->medicaments\",1,$this->created_at)";
 		return Executor::doit($sql);
 	}
-	public static function addfast(){
+	public function addfast(){
 		$sql = "insert into reservation (title,note,medic_id,date_at,time_at,user_id,price,status_id,payment_id,sick,symtoms,medicaments,type,created_at,name,phone,address) ";
 		$sql .= "value (\"$this->title\",\"$this->note\",\"$this->medic_id\",\"$this->date_at\",\"$this->time_at\",$this->user_id,\"$this->price\",$this->status_id,$this->payment_id,\"$this->sick\",\"$this->symtoms\",\"$this->medicaments\",3,$this->created_at,\"$this->name\",\"$this->phone\",\"$this->address\")";
 		return Executor::doit($sql);
@@ -31,17 +31,17 @@ class ReservationData {
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);
 	}
-	public static function del(){
+	public function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
 		Executor::doit($sql);
 	}
 
 // partiendo de que ya tenemos creado un objecto ReservationData previamente utilizamos el contexto
-	public static function update(){
+	public function update(){
 		$sql = "update ".self::$tablename." set title=\"$this->title\",pacient_id=\"$this->pacient_id\",medic_id=\"$this->medic_id\",date_at=\"$this->date_at\",time_at=\"$this->time_at\",note=\"$this->note\",sick=\"$this->sick\",symtoms=\"$this->symtoms\",medicaments=\"$this->medicaments\",status_id=\"$this->status_id\",payment_id=\"$this->payment_id\",price=\"$this->price\" where id=$this->id";
 		Executor::doit($sql);
 	}
-	public static function updatefast(){
+	public function updatefast(){
 		$sql = "update ".self::$tablename." set title=\"$this->title\",medic_id=\"$this->medic_id\",date_at=\"$this->date_at\",time_at=\"$this->time_at\",note=\"$this->note\",sick=\"$this->sick\",symtoms=\"$this->symtoms\",medicaments=\"$this->medicaments\",status_id=\"$this->status_id\",payment_id=\"$this->payment_id\",price=\"$this->price\",name=\"$this->name\",phone=\"$this->phone\",address=\"$this->address\" where id=$this->id";
 		Executor::doit($sql);
 	}

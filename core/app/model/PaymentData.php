@@ -11,7 +11,7 @@ class PaymentData {
 		$this->created_at = "NOW()";
 	}
 
-	public static function add(){
+	public function add(){
 		$sql = "insert into payment (name) ";
 		$sql .= "value (\"$this->name\")";
 		return Executor::doit($sql);
@@ -21,13 +21,13 @@ class PaymentData {
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);
 	}
-	public static function del(){
+	public function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
 		Executor::doit($sql);
 	}
 
 // partiendo de que ya tenemos creado un objecto PaymentData previamente utilizamos el contexto
-	public static function update(){
+	public function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
 		Executor::doit($sql);
 	}
