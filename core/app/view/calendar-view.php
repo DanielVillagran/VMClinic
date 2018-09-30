@@ -44,7 +44,6 @@ foreach($events as $event){
 					type: 'info',
 					title: 'Cita.',
 					text: 'Cita para el '+date.format()+"<br>Nombre del paciente<br><input type='text' id='nombreF' class='form-control'><br>Hora de la cita<br><input type='time' id='timeF' class='form-control'>",
-					html:true,
 					showCancelButton: true,
 					
 				}).then((result) => {
