@@ -42,8 +42,8 @@ foreach($events as $event){
 					if (result.value) {
 						swal({
 					type: 'info',
-					title: 'Cita.',
-					html: 'Cita para el '+date.format()+"<br>Nombre del paciente<br><input type='text' id='nombreF' class='form-control'><br>Hora de la cita<br><input type='time' id='timeF' class='form-control'>",
+					title: 'Cita Rapida.',
+					html: '<b>Cita para el '+date.format()+"</b><br><br>Nombre del paciente<br><input type='text' id='nombreF' class='form-control'><br>Hora de la cita<br><input type='time' id='timeF' class='form-control'>",
 					showCancelButton: true,
 					
 				}).then((result) => {
