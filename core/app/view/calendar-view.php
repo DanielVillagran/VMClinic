@@ -47,16 +47,17 @@ foreach($events as $event){
 					showCancelButton: true,
 					
 				}).then((result) => {
-					var inputValue=result.value;
+					var inputValue=$("#nombreF").val();
+					var inputHour=$("#timeF").val();
 					//swal.close();
-					if (inputValue == "" || inputValue == null) {
-						swal("Error","Necesitas escribir un motivo!");
+					if ((inputValue == "" || inputValue == null)&&(inputHour == "" || inputHour == null)) {
+						swal("Error","Necesitas llenar los campos solicitados!");
 						return false
 					}else{
 						$.ajax({
-							url:"core/app/querys/insert_reservation.php",
+							url:"core/app/querys/insert_fast_reservation.php",
 							type:'post',
-							data: {'titulo': inputValue,'fecha':date.format()},
+							data: {'titulo': inputValue,'fecha':date.format(),'hour': inputHour},
 							dataType:'json',
 							success(data) {
 							}
