@@ -3,11 +3,11 @@ $thejson=null;
 $events = ReservationData::getEvery();
 foreach($events as $event){
 	if($event->type=="1"){
-		$thejson[] = array("title"=>$event->title,"backgroundColor"=>"blue","url"=>"./?view=editreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
+		$thejson[] = array("title"=>$event->title,"color"=>"blue","url"=>"./?view=editreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
 	}else if($event->type=="2"){
-		$thejson[] = array("title"=>$event->title,"backgroundColor"=>"purple","url"=>"#","start"=>$event->date_at."T".$event->time_at);
+		$thejson[] = array("title"=>$event->title,"color"=>"purple","url"=>"#","start"=>$event->date_at."T".$event->time_at);
 	}else{
-		$thejson[] = array("title"=>$event->title,"backgroundColor"=>"yellow","url"=>"./?view=editfastreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
+		$thejson[] = array("title"=>$event->title,"color"=>"yellow","url"=>"./?view=editfastreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
 	}
 }
 ?>
