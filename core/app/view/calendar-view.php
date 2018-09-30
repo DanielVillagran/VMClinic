@@ -30,14 +30,31 @@ foreach($events as $event){
 				//alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
 				//alert('Current view: ' + view.name);
 				swal({
-					type: 'info',
-					title: 'Manejo de ausencia.',
-					text: 'Por que razon no estara disponibles el '+date.format()+"?",
-					input:'text',
+					title: 'Cita o incidencia',
+					text: "Selecciona lo que deseas hacer",
+					type: 'warning',
 					showCancelButton: true,
-					
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Cita',
+					cancelButtonText: 'Incidencia',
 				}).then((result) => {
-					var inputValue=result.value;
+					if (result.value) {
+						swal(
+							'Deleted!',
+							'Your file has been deleted.',
+							'success'
+							);
+					}else{
+						swal({
+							type: 'info',
+							title: 'Manejo de ausencia.',
+							text: 'Por que razon no estara disponibles el '+date.format()+"?",
+							input:'text',
+							showCancelButton: true,
+							
+						}).then((result) => {
+							var inputValue=result.value;
 					//swal.close();
 					if (inputValue == "" || inputValue == null) {
 						swal("Error","Necesitas escribir un motivo!");
@@ -68,6 +85,9 @@ foreach($events as $event){
 						})
 					}
 				});
+					}
+				});
+				
 				//$(this).css('background-color', 'green');
 			}
 		});
