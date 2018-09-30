@@ -40,11 +40,45 @@ foreach($events as $event){
 					cancelButtonText: 'Incidencia',
 				}).then((result) => {
 					if (result.value) {
-						swal(
-							'Deleted!',
-							'Your file has been deleted.',
-							'success'
-							);
+						swal({
+					type: 'info',
+					title: 'Cita.',
+					text: 'Cita para el '+date.format()+"<br>Nombre del paciente<br><input type='text' id='nombreF' class='form-control'><br>Hora de la cita<br><input type='time' id='timeF' class='form-control'>",
+					html:true,
+					showCancelButton: true,
+					
+				}).then((result) => {
+					var inputValue=result.value;
+					//swal.close();
+					if (inputValue == "" || inputValue == null) {
+						swal("Error","Necesitas escribir un motivo!");
+						return false
+					}else{
+						$.ajax({
+							url:"core/app/querys/insert_reservation.php",
+							type:'post',
+							data: {'titulo': inputValue,'fecha':date.format()},
+							dataType:'json',
+							success(data) {
+							}
+						});
+						//swal("Listo!", "Agendado con exito.", "success");	
+						//window.location='index.php?view=calendar';
+						swal({
+							title: 'Listo!',
+							text: "Se ha gruardado la incidencia con exito!",
+							type: 'success',
+							showCancelButton: false,
+							confirmButtonColor: '#3085d6',
+							cancelButtonColor: '#d33',
+							confirmButtonText: 'Perfecto!'
+						}).then((result) => {
+							if (result.value) {
+								window.location='index.php?view=calendar';
+							}
+						})
+					}
+				});
 					}else{
 						swal({
 							type: 'info',
@@ -52,7 +86,7 @@ foreach($events as $event){
 							text: 'Por que razon no estara disponibles el '+date.format()+"?",
 							input:'text',
 							showCancelButton: true,
-							
+
 						}).then((result) => {
 							var inputValue=result.value;
 					//swal.close();
