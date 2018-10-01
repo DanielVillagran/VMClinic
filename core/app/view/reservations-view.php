@@ -147,12 +147,16 @@ if($_GET["q"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ){
 			?>
 			<?php
 			foreach($users2 as $user){
-				$medic = $user->getMedic();
+				$medico="";
+				if(isset($user->medic_id)&&$user->medic_id!=""){
+						$medic = $user->getMedic();
+						$medico=$medic->name." ".$medic->lastname;
+					}
 				?>
 				<tr>
 				<td><?php echo $user->title; ?></td>
 				<td><?php echo $user->name; ?></td>
-				<td><?php echo $medic->name." ".$medic->lastname; ?></td>
+				<td><?php echo $medico; ?></td>
 				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
 				<td style="width:180px;">
 				<a href="index.php?view=editfastreservation&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
