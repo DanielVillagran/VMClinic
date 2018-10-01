@@ -6,7 +6,7 @@ $reservation->title=$_POST['titulo'].", Cita rapida.";
 $reservation->date_at=$_POST['fecha'];
 $reservation->time_at=$_POST['hour'];
 $reservation->type="3";
-$reservation->nombre=$_POST['titulo'];
+$reservation->name=$_POST['titulo'];
 //$reservation->created_at="NOW()";
 $id=R::store($reservation);
 echo "<script>window.location='index.php?view=calendar';</script>";
