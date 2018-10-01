@@ -111,7 +111,7 @@ if($_GET["q"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ){
 		$users2 = ReservationData::getBySQL($sql);
 
 }else{
-		//$users = ReservationData::getAll();
+		$users = ReservationData::getAll();
 		//$users2 = ReservationData::getAllfast();
 
 }
