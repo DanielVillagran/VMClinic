@@ -9,9 +9,9 @@ class MuniData
     public static function getMuni()
     {
     	require 'rb.php';
+    	R::setup( 'mysql:host=localhost;dbname=casamar5_rgbioclinic',
 
-    	R::setup( 'mysql:host=localhost:3309;dbname=vmclinic',
-        'root', 'root' );
+        'casamar5_uno', 'daniel200796' );
 
     	$where='';
     	if(isset($_POST['id'])){
