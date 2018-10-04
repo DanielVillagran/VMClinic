@@ -54,7 +54,7 @@ $payments = PaymentData::getAll();
     <div class="col-lg-5">
       <input type="time" name="time_at" required class="form-control" id="inputEmail1" placeholder="Hora">
     </div>
-  </div>
+ <!--  </div>
     <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Enfermedad</label>
     <div class="col-lg-10">
@@ -102,7 +102,7 @@ $payments = PaymentData::getAll();
   <input type="text" class="form-control" name="price" placeholder="Costo">
 </div>
     </div>
-  </div>
+  </div> -->
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <button type="submit" class="btn btn-default">Agregar Cita Rapida</button>
