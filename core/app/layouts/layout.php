@@ -70,6 +70,12 @@
                       </a>
                   </li>
                   <li>
+                      <a href="./?view=medicine">
+                          <i class="fa fa-support"></i>
+                          <p>Medicamentos</p>
+                      </a>
+                  </li>
+                  <li>
                       <a href="./?view=items">
                           <i class="fa fa-database"></i>
                           <p>Articulos</p>
