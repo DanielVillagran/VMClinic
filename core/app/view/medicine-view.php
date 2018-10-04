@@ -9,7 +9,7 @@
 
 		<?php
 
-		$users = CategoryData::getAll();
+		$users = MedicineData::getAll();
 		if(count($users)>0){
 			// si hay usuarios
 			?>
