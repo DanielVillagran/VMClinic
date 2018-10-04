@@ -3,11 +3,11 @@ $thejson=null;
 $events = ReservationData::getEvery();
 foreach($events as $event){
 	if($event->type=="1"){
-		$thejson[] = array("title"=>$event->title,"url"=>"./?view=editreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
+		$thejson[] = array("title"=>$event->title,"color"=>"#12548E","url"=>"./?view=editreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
 	}else if($event->type=="2"){
-		$thejson[] = array("title"=>$event->title,"url"=>"#","start"=>$event->date_at."T".$event->time_at);
+		$thejson[] = array("title"=>$event->title,"color"=>"purple","url"=>"#","start"=>$event->date_at."T".$event->time_at);
 	}else{
-		$thejson[] = array("title"=>$event->title,"url"=>"./?view=editfastreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
+		$thejson[] = array("title"=>$event->title,"color"=>"#00CCFF","url"=>"./?view=editfastreservation&id=".$event->id,"start"=>$event->date_at."T".$event->time_at);
 	}
 }
 ?>
@@ -30,14 +30,65 @@ foreach($events as $event){
 				//alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
 				//alert('Current view: ' + view.name);
 				swal({
+					title: 'Cita o incidencia',
+					text: "Selecciona lo que deseas hacer",
+					type: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Cita',
+					cancelButtonText: 'Incidencia',
+				}).then((result) => {
+					if (result.value) {
+						swal({
 					type: 'info',
-					title: 'Manejo de ausencia.',
-					text: 'Por que razon no estara disponibles el '+date.format()+"?",
-					input:'text',
+					title: 'Cita Rapida.',
+					html: '<b>Cita para el '+date.format()+"</b><br><br>Nombre del paciente<br><input type='text' id='nombreF' class='form-control'><br>Hora de la cita<br><input type='time' id='timeF' class='form-control'>",
 					showCancelButton: true,
 					
 				}).then((result) => {
-					var inputValue=result.value;
+					var inputValue=$("#nombreF").val();
+					var inputHour=$("#timeF").val();
+					//swal.close();
+					if ((inputValue == "" || inputValue == null)&&(inputHour == "" || inputHour == null)) {
+						swal("Error","Necesitas llenar los campos solicitados!");
+						return false
+					}else{
+						$.ajax({
+							url:"core/app/querys/insert_fast_reservation.php",
+							type:'post',
+							data: {'titulo': inputValue,'fecha':date.format(),'hour': inputHour},
+							dataType:'json',
+							success(data) {
+							}
+						});
+						//swal("Listo!", "Agendado con exito.", "success");	
+						//window.location='index.php?view=calendar';
+						swal({
+							title: 'Listo!',
+							text: "Se ha gruardado la incidencia con exito!",
+							type: 'success',
+							showCancelButton: false,
+							confirmButtonColor: '#3085d6',
+							cancelButtonColor: '#d33',
+							confirmButtonText: 'Perfecto!'
+						}).then((result) => {
+							if (result.value) {
+								window.location='index.php?view=calendar';
+							}
+						})
+					}
+				});
+					}else{
+						swal({
+							type: 'info',
+							title: 'Manejo de ausencia.',
+							text: 'Por que razon no estara disponibles el '+date.format()+"?",
+							input:'text',
+							showCancelButton: true,
+
+						}).then((result) => {
+							var inputValue=result.value;
 					//swal.close();
 					if (inputValue == "" || inputValue == null) {
 						swal("Error","Necesitas escribir un motivo!");
@@ -68,6 +119,9 @@ foreach($events as $event){
 						})
 					}
 				});
+					}
+				});
+				
 				//$(this).css('background-color', 'green');
 			}
 		});
