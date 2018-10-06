@@ -30,7 +30,6 @@
             $zip_val->addFromString($key_file_name, $message);
             $zip_val->close();
         }
-        echo "chingaste a tu madre";
     }
     catch (Exception $exc) 
     {
