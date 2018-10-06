@@ -13,6 +13,7 @@
     {
         if (!file_exists($folder)) {
             mkdir($folder);
+            var_dump("puto");
         }    
         var_dump(getcwd());   
         copy($template_file_name, $full_path);
