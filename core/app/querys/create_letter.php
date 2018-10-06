@@ -8,6 +8,7 @@
     $fileName = "carta" . trim($paciente) . ".docx";
     $folder   = "Resources";
     $full_path = $folder . '/' . $fileName;
+    var_dump(getcwd());
     try
     {
         if (!file_exists($folder)) {
