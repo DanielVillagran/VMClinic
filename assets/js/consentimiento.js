@@ -1,0 +1,3 @@
+$('#imprimirConsentimiento').click(function () {
+	alert();
+});

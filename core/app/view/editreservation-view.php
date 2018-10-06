@@ -111,9 +111,13 @@ $payments = PaymentData::getAll();
     <input type="hidden" name="id" value="<?php echo $reservation->id; ?>">
       <button type="submit" class="btn btn-default">Actualizar Cita</button>
     </div>
+     <div class="col-lg-offset-2 col-lg-10">
+      <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
+    </div>
   </div>
 </form>
 </div>
 </div>
 	</div>
 </div>
+<script type="text/javascript" src="assets/js/consentimiento.js"></script>
