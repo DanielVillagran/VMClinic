@@ -30,7 +30,8 @@ $('#imprimirConsentimiento').click(function () {
 							success() {
 								$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/carta"+paciente+".docx");
 								$("#vinculoConsentimiento").click();
-								window.open("core/app/querys/Resources/carta"+paciente+".docx","_blank");
+								var w=window.open("core/app/querys/Resources/carta"+paciente+".docx","_blank");
+								w.print();
 							}
 						});
 						
