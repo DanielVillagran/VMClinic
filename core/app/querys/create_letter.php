@@ -30,15 +30,7 @@
             $zip_val->addFromString($key_file_name, $message);
             $zip_val->close();
         }
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="'.basename($fileName).'"');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($full_path));
-        flush(); // Flush system output buffer
-        readfile($full_path);
+        echo "chingaste a tu madre";
         exit;
 
     }
