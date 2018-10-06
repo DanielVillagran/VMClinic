@@ -13,7 +13,8 @@
     {
         if (!file_exists($folder)) {
             mkdir($folder);
-        }       
+        }    
+        var_dump(getcwd());   
         copy($template_file_name, $full_path);
         $zip_val = new ZipArchive;
         if($zip_val->open($full_path) == true)
