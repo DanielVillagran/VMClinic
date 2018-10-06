@@ -30,12 +30,13 @@
             $zip_val->addFromString($key_file_name, $message);
             $zip_val->close();
         }
+
     }
     catch (Exception $exc) 
     {
         $error_message =  "Error creating the Word Document";
         var_dump($exc);
     }
-
+    return 0;
 
     ?>

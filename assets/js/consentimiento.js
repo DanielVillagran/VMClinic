@@ -28,6 +28,7 @@ $('#imprimirConsentimiento').click(function () {
 							data: {'fecha':fecha,'paciente':paciente,'doctor':doctor,'consentimiento':consentimiento},
 							dataType:'json',
 							success() {
+								alert("puto");
 							}
 						});
 						$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/carta"+paciente+".docx");
