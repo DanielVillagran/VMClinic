@@ -20,20 +20,19 @@ $('#imprimirReceta').click(function () {
 		showCancelButton: true,
 
 	}).then((result) => {
-		var edad=$("edadF").val();
-		var peso=$("pesoF").val();
-		var ta=$("taF").val();
-		var fc=$("fcF").val();
+		var edad=$("#edadF").val();
+		var peso=$("#pesoF").val();
+		var ta=$("#taF").val();
+		var fc=$("#fcF").val();
 
-		var fr=$("frF").val();
-		var temp=$("tempF").val();
-		var sato=$("satoF").val();
+		var fr=$("#frF").val();
+		var temp=$("#tempF").val();
+		var sato=$("#satoF").val();
 					//swal.close();
-					if (edad==""||edad== null||peso==""||peso== null) {
+					if (edad==null) {
 						swal("Error","Necesitas llenar los campos solicitados!");
 						return false
 					}else{
-						consentimiento=inputValue;
 						$.ajax({
 							url:"core/app/querys/create_letter_receta.php",
 							type:'post',

@@ -111,16 +111,19 @@ $payments = PaymentData::getAll();
               <input type="hidden" name="id" value="<?php echo $reservation->id; ?>">
               <button type="submit" class="btn btn-default">Actualizar Cita</button>
               <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
-              <div style="display: none;">
-                <a href="" id="vinculoConsentimiento" download>
-                </div>
-                <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Consentimiento</button>
-              <div style="display: none;">
-                <a href="" id="vinculoReceta" download>
-                </div>
+             
+                <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>
+              
             </div>
             </div>
           </form>
+           <div style="display: none;">
+                <a href="" id="vinculoConsentimiento" download>
+
+                </div>
+                <div style="display: none;">
+                <a href="" id="vinculoReceta" download>
+                </div>
         </div>
       </div>
     </div>
