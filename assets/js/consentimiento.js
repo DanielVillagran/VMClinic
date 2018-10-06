@@ -28,11 +28,11 @@ $('#imprimirConsentimiento').click(function () {
 							data: {'fecha':fecha,'paciente':paciente,'doctor':doctor,'consentimiento':consentimiento},
 							dataType:'html',
 							success() {
-								alert("puto");
+								$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/carta"+paciente+".docx");
+								$("#vinculoConsentimiento").click();
 							}
 						});
-						$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/carta"+paciente+".docx");
-						$("#vinculoConsentimiento").click();
+						
 					}
 				});
 });
