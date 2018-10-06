@@ -126,3 +126,4 @@ $payments = PaymentData::getAll();
     </div>
   </div>
   <script type="text/javascript" src="assets/js/consentimiento.js"></script>
+    <script type="text/javascript" src="assets/js/receta.js"></script>
