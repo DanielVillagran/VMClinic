@@ -37,6 +37,6 @@
         $error_message =  "Error creating the Word Document";
         var_dump($exc);
     }
-    return 0;
+    echo "dany";
 
     ?>

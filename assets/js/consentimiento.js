@@ -26,7 +26,7 @@ $('#imprimirConsentimiento').click(function () {
 							url:"core/app/querys/create_letter.php",
 							type:'post',
 							data: {'fecha':fecha,'paciente':paciente,'doctor':doctor,'consentimiento':consentimiento},
-							dataType:'json',
+							dataType:'html',
 							success() {
 								alert("puto");
 							}
