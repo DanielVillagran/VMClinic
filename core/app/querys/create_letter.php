@@ -31,8 +31,6 @@
             $zip_val->close();
         }
         echo "chingaste a tu madre";
-        exit;
-
     }
     catch (Exception $exc) 
     {
