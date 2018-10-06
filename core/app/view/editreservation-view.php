@@ -35,7 +35,7 @@ $payments = PaymentData::getAll();
 <select name="medic_id" id="medic_id"  class="form-control" required>
 <option value="">-- SELECCIONE --</option>
   <?php foreach($medics as $p):?>
-    <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->medic_id){ echo "selected"; }?>><?php echo .$p->name." ".$p->lastname; ?></option>
+    <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->medic_id){ echo "selected"; }?>><?php echo $p->name." ".$p->lastname; ?></option>
   <?php endforeach; ?>
 </select>
     </div>
