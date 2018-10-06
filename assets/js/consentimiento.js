@@ -31,7 +31,7 @@ $('#imprimirConsentimiento').click(function () {
 							}
 						});
 						$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/carta"+paciente+".docx");
-						$("#vinculoConsentimiento").trigger('click');
+						$("#vinculoConsentimiento").click();
 					}
 				});
 });
