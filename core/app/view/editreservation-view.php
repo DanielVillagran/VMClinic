@@ -23,7 +23,7 @@ $payments = PaymentData::getAll();
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Paciente</label>
     <div class="col-lg-4">
-<select name="pacient_id" class="form-control" required>
+<select name="pacient_id" id="pacient_id" class="form-control" required>
 <option value="">-- SELECCIONE --</option>
   <?php foreach($pacients as $p):?>
     <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->pacient_id){ echo "selected"; }?>><?php echo $p->id." - ".$p->name." ".$p->lastname; ?></option>
@@ -32,7 +32,7 @@ $payments = PaymentData::getAll();
     </div>
     <label for="inputEmail1" class="col-lg-2 control-label">Medico</label>
     <div class="col-lg-4">
-<select name="medic_id" class="form-control" required>
+<select name="medic_id" id="medic_id"  class="form-control" required>
 <option value="">-- SELECCIONE --</option>
   <?php foreach($medics as $p):?>
     <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->medic_id){ echo "selected"; }?>><?php echo $p->id." - ".$p->name." ".$p->lastname; ?></option>
