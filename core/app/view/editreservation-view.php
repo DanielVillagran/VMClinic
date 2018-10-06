@@ -120,4 +120,7 @@ $payments = PaymentData::getAll();
 </div>
 	</div>
 </div>
+<div style="display: none;">
+    <a href="" id="vinculoConsentimiento" download>
+  </div>
 <script type="text/javascript" src="assets/js/consentimiento.js"></script>

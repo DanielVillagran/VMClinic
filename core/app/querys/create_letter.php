@@ -25,7 +25,7 @@
             $message = str_replace("%DOCTOR%", $doctor,       $message);
             $message = str_replace("%CONSENTIMIENTO%", $consentimiento,           $message);
             $message = str_replace("%PACIENTE%", $paciente,                  $message);      
-            $message = str_replace("%FECHA%", $fecha,           $message); 
+            $message = str_replace("%HOY%", $fecha,           $message); 
 
             $zip_val->addFromString($key_file_name, $message);
             $zip_val->close();
