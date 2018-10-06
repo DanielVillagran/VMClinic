@@ -113,6 +113,9 @@ $payments = PaymentData::getAll();
     </div>
      <div class="col-lg-offset-2">
       <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
+      <div style="display: none;">
+    <a href="" id="vinculoConsentimiento" download>
+  </div>
     </div>
   </div>
 </form>
@@ -120,7 +123,4 @@ $payments = PaymentData::getAll();
 </div>
 	</div>
 </div>
-<div style="display: none;">
-    <a href="" id="vinculoConsentimiento" download>
-  </div>
 <script type="text/javascript" src="assets/js/consentimiento.js"></script>
