@@ -6,7 +6,7 @@
     $template_file_name = 'carta.docx';
     $rand_no = rand(111111, 999999);
     $fileName = "carta" . trim($paciente) . ".docx";
-    $folder   = "../../Resources";
+    $folder   = "Resources";
     $full_path = $folder . '/' . $fileName;
     try
     {
