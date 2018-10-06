@@ -14,6 +14,7 @@
     <link href="assets/css/material-dashboard.css" rel="stylesheet"/>
     <link href="assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+  <script src='assets/js/sweetalert2.all.js'></script>
 
 <?php if(isset($_GET["view"]) && $_GET["view"]=="calendar"):?>
 <link href='assets/fullcalendar/fullcalendar.min.css' rel='stylesheet' />
@@ -21,7 +22,7 @@
 <script src='assets/fullcalendar/moment.min.js'></script>
 <script src='assets/fullcalendar/fullcalendar.min.js'></script>
 <script src='assets/fullcalendar/locale-all.js'></script>
-<script src='assets/js/sweetalert2.all.js'></script>
+
 <?php endif; ?>
 
 </head>

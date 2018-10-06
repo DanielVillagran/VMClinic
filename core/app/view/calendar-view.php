@@ -66,7 +66,7 @@ foreach($events as $event){
 						//window.location='index.php?view=calendar';
 						swal({
 							title: 'Listo!',
-							text: "Se ha gruardado la incidencia con exito!",
+							text: "Se ha gruardado la cita con exito!",
 							type: 'success',
 							showCancelButton: false,
 							confirmButtonColor: '#3085d6',
