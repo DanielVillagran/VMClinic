@@ -107,7 +107,7 @@ $payments = PaymentData::getAll();
   </div>
 
   <div class="form-group">
-    <div class="col-lg-offset-">
+    <div class="col-lg-offset-2">
     <input type="hidden" name="id" value="<?php echo $reservation->id; ?>">
       <button type="submit" class="btn btn-default">Actualizar Cita</button>
     </div>
