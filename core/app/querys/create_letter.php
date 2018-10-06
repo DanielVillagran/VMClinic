@@ -3,19 +3,16 @@
     $consentimiento=$_POST['consentimiento'];
     $paciente=$_POST['paciente'];
     $fecha=$_POST['fecha'];
-    $template_file_name = 'carta.docx';
+    $template_file_name = 'Resources/carta.docx';
     $rand_no = rand(111111, 999999);
     $fileName = "carta" . trim($paciente) . ".docx";
     $folder   = "Resources";
     $full_path = $folder . '/' . $fileName;
-    var_dump(getcwd());
     try
     {
         if (!file_exists($folder)) {
             mkdir($folder);
-            var_dump("puto");
-        }    
-        var_dump(getcwd());   
+        }      
         copy($template_file_name, $full_path);
         $zip_val = new ZipArchive;
         if($zip_val->open($full_path) == true)
