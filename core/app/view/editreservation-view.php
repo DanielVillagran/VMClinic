@@ -76,7 +76,7 @@ $medicines = MedicineData::getAll();
                <select name="medicine_id" id="medicine_id"  class="form-control" required>
                 <option value="">-- SELECCIONE --</option>
                 <?php foreach($medicines as $p):?>
-                  <option value="<?php echo $p->id; ?>" <?php  echo $p->name." ".$p->lastname; ?></option>
+                  <option value="<?php echo $p->id; ?>"> <?php  echo $p->name ?></option>
                 <?php endforeach; ?>
               </select> 
             </div>
@@ -84,7 +84,7 @@ $medicines = MedicineData::getAll();
             <div class="col-lg-2">
                <input type="text" name="dosis" value="" class="form-control" id="dosis" placeholder="Dosis">
             </div>
-            <button type="button" id="agregarMedicine">Agregar Medicamento</button>
+            <button type="button" class="btn btn-default" id="agregarMedicine">Agregar Medicamento</button>
           </div>
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Estado de la cita</label>
