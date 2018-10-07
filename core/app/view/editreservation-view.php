@@ -73,72 +73,82 @@ $medicines = MedicineData::getAll();
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Medicamento</label>
             <div class="col-lg-3">
-               <select name="medicine_id" id="medicine_id"  class="form-control" required>
-                <option value="">-- SELECCIONE --</option>
-                <?php foreach($medicines as $p):?>
-                  <option value="<?php echo $p->id; ?>"> <?php  echo $p->name ?></option>
-                <?php endforeach; ?>
-              </select> 
-            </div>
-             <label for="inputEmail1" class="col-lg-2 control-label">Dosis</label>
-            <div class="col-lg-2">
-               <input type="text" name="dosis" value="" class="form-control" id="dosis" placeholder="Dosis">
-            </div>
-            <button type="button" class="btn btn-default" id="agregarMedicine">Agregar Medicamento</button>
+             <select name="medicine_id" id="medicine_id"  class="form-control" required>
+              <option value="">-- SELECCIONE --</option>
+              <?php foreach($medicines as $p):?>
+                <option value="<?php echo $p->id; ?>"> <?php  echo $p->name ?></option>
+              <?php endforeach; ?>
+            </select> 
           </div>
-          <div class="form-group">
-            <label for="inputEmail1" class="col-lg-2 control-label">Estado de la cita</label>
-            <div class="col-lg-4">
-              <select name="status_id" class="form-control" required>
-                <?php foreach($statuses as $p):?>
-                  <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->status_id){ echo "selected"; }?>><?php echo $p->name; ?></option>
-                <?php endforeach; ?>
-              </select>
-            </div>
-            <label for="inputEmail1" class="col-lg-2 control-label">Estado del pago</label>
-            <div class="col-lg-4">
-              <select name="payment_id" class="form-control" required>
-                <?php foreach($payments as $p):?>
-                  <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->payment_id){ echo "selected"; }?>><?php echo $p->name; ?></option>
-                <?php endforeach; ?>
-              </select>
-            </div>
+          <label for="inputEmail1" class="col-lg-2 control-label">Dosis</label>
+          <div class="col-lg-2">
+           <input type="text" name="dosis" value="" class="form-control" id="dosis" placeholder="Dosis">
+         </div>
+         <button type="button" class="btn btn-default" id="agregarMedicine">Agregar Medicamento</button>
+       </div>
+       <table style="display: none;" id="tabla_medicamentos" class="table table-bordered table-hover">
+        <thead>
+          <th>Medicamento</th>
+          <th>Dosis</th>
+          <th></th>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <div class="form-group">
+        <label for="inputEmail1" class="col-lg-2 control-label">Estado de la cita</label>
+        <div class="col-lg-4">
+          <select name="status_id" class="form-control" required>
+            <?php foreach($statuses as $p):?>
+              <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->status_id){ echo "selected"; }?>><?php echo $p->name; ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <label for="inputEmail1" class="col-lg-2 control-label">Estado del pago</label>
+        <div class="col-lg-4">
+          <select name="payment_id" class="form-control" required>
+            <?php foreach($payments as $p):?>
+              <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->payment_id){ echo "selected"; }?>><?php echo $p->name; ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+
+      </div>
+
+      <div class="form-group">
+        <label for="inputEmail1" class="col-lg-2 control-label">Costo</label>
+        <div class="col-lg-10">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-usd"></i></span>
+            <input type="text" class="form-control" value="<?php echo $reservation->price;?>" name="price" placeholder="Costo">
           </div>
-          <div class="form-group">
+        </div>
+      </div>
 
-          </div>
+      <div class="form-group">
+        <div class="col-lg-offset-2">
+          <input type="hidden" name="id" id="id" value="<?php echo $reservation->id; ?>">
+          <button type="submit" class="btn btn-default">Actualizar Cita</button>
+          <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
+          <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>
+          <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico</button>
 
-          <div class="form-group">
-            <label for="inputEmail1" class="col-lg-2 control-label">Costo</label>
-            <div class="col-lg-10">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-usd"></i></span>
-                <input type="text" class="form-control" value="<?php echo $reservation->price;?>" name="price" placeholder="Costo">
-              </div>
-            </div>
-          </div>
+        </div>
+      </div>
+    </form>
+    <div style="display: none;">
+      <a href="" id="vinculoConsentimiento" download>
 
-          <div class="form-group">
-            <div class="col-lg-offset-2">
-              <input type="hidden" name="id" value="<?php echo $reservation->id; ?>">
-              <button type="submit" class="btn btn-default">Actualizar Cita</button>
-              <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
-              <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>
-              <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico</button>
-              
-            </div>
-            </div>
-          </form>
-           <div style="display: none;">
-                <a href="" id="vinculoConsentimiento" download>
-
-                </div>
-                <div style="display: none;">
-                <a href="" id="vinculoReceta" download>
-                </div>
+      </div>
+      <div style="display: none;">
+        <a href="" id="vinculoReceta" download>
         </div>
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="assets/js/consentimiento.js"></script>
-    <script type="text/javascript" src="assets/js/receta.js"></script>
+</div>
+<script type="text/javascript" src="assets/js/consentimiento.js"></script>
+<script type="text/javascript" src="assets/js/receta.js"></script>

@@ -1,3 +1,23 @@
+$( document ).ready(function() {
+	var cita=$("#id").val();
+	$.ajax({
+		url:"core/app/querys/get_medicines.php",
+		type:'post',
+		data: {'cita':cita},
+		dataType:'json',
+		success(data) {
+			$('#tabla_medicamentos').hide();
+			$('#tabla_medicamentos tbody').empty();
+			$.each(data, function (i, item) {
+				$('#tabla_medicamentos').show();
+				$('#tabla_medicamentos tbody').append("<tr><td>"+item.medicine+"</td>\
+					<td>"+item.dosis+"</td>\
+					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
+					);
+			});
+		}
+	});
+});
 $('#imprimirReceta').click(function () {
 	var fullDate = new Date();
 	const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
@@ -49,3 +69,25 @@ $('#imprimirReceta').click(function () {
 					}
 				});
 });
+$('#agregarMedicine').click(function (){
+	var medicine= $("#medicine_id option[value='"+$("#medicine_id").val()+"']").text();
+	var dosis=$("#dosis").val();
+	var cita=$("#id").val();
+	$.ajax({
+		url:"core/app/querys/get_medicines.php",
+		type:'post',
+		data: {'medicine':medicine,"dosis":dosis,'cita':cita},
+		dataType:'json',
+		success(data) {
+			$('#tabla_medicamentos').hide();
+			$('#tabla_medicamentos tbody').empty();
+			$.each(data, function (i, item) {
+				$('#tabla_medicamentos').show();
+				$('#tabla_medicamentos tbody').append("<tr><td>"+item.medicine+"</td>\
+					<td>"+item.dosis+"</td>\
+					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
+					);
+			});
+		}
+	});
+}
