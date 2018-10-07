@@ -90,4 +90,4 @@ $('#agregarMedicine').click(function (){
 			});
 		}
 	});
-}
+});
