@@ -91,3 +91,24 @@ $('#agregarMedicine').click(function (){
 		}
 	});
 });
+function eliminar(id){
+	var cita=$("#id").val();
+	$.ajax({
+		url:"core/app/querys/delete_medicines.php",
+		type:'post',
+		data: {'id':id,'cita':cita},
+		dataType:'json',
+		success(data) {
+			$('#tabla_medicamentos').hide();
+			$('#tabla_medicamentos tbody').empty();
+			$.each(data, function (i, item) {
+				$('#tabla_medicamentos').show();
+				$('#tabla_medicamentos tbody').append("<tr><td>"+item.medicine+"</td>\
+					<td>"+item.dosis+"</td>\
+					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
+					);
+			});
+		}
+	});
+
+}
