@@ -56,9 +56,6 @@
 				<td><?php echo $medico; ?></td>
 				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
 				<td style="width:130px;">
-				<?php 
-
-				 ?>
 				<a href="index.php?view=<?php echo $tipo; ?>&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
 				<a href="index.php?action=delreservation&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
 				</td>
