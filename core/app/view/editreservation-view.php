@@ -4,6 +4,7 @@ $pacients = PacientData::getAll();
 $medics = MedicData::getAll();
 $statuses = StatusData::getAll();
 $payments = PaymentData::getAll();
+$medicines = MedicineData::getAll();
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -68,11 +69,22 @@ $payments = PaymentData::getAll();
             <div class="col-lg-4">
               <textarea class="form-control" name="symtoms" placeholder="Sintomas"><?php echo $reservation->symtoms;?></textarea>
             </div>
-            <label for="inputEmail1" class="col-lg-2 control-label">Medicamentos</label>
-            <div class="col-lg-4">
-              <textarea class="form-control" name="medicaments" placeholder="Medicamentos"><?php echo $reservation->medicaments;?></textarea>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Medicamento</label>
+            <div class="col-lg-3">
+               <select name="medicine_id" id="medicine_id"  class="form-control" required>
+                <option value="">-- SELECCIONE --</option>
+                <?php foreach($medicines as $p):?>
+                  <option value="<?php echo $p->id; ?>" <?php  echo $p->name." ".$p->lastname; ?></option>
+                <?php endforeach; ?>
+              </select> 
             </div>
-
+             <label for="inputEmail1" class="col-lg-2 control-label">Dosis</label>
+            <div class="col-lg-2">
+               <input type="text" name="dosis" value="" class="form-control" id="dosis" placeholder="Dosis">
+            </div>
+            <button type="button" id="agregarMedicine">Agregar Medicamento</button>
           </div>
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Estado de la cita</label>
@@ -111,8 +123,8 @@ $payments = PaymentData::getAll();
               <input type="hidden" name="id" value="<?php echo $reservation->id; ?>">
               <button type="submit" class="btn btn-default">Actualizar Cita</button>
               <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
-             
-                <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>
+              <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>
+              <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico</button>
               
             </div>
             </div>
