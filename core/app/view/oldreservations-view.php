@@ -29,11 +29,17 @@
 			<th></th>
 			</thead>
 			<?php
+
 			foreach($users as $user){
+				$tipo="editreservation";
 				if(isset($user->pacient_id)&&$user->pacient_id!=""){
 					$pacient  = $user->getPacient();
 				}
-				$medic = $user->getMedic();
+				$medico="";
+				if(isset($user->medic_id)&&$user->medic_id!=""){
+						$medic = $user->getMedic();
+						$medico=$medic->name." ".$medic->lastname;
+					}
 				?>
 				<tr>
 				<td><?php echo $user->title; ?></td>
@@ -42,13 +48,14 @@
 					echo $pacient->name." ".$pacient->lastname; 
 				}else{
 					echo $user->name;
+					$tipo="editfastreservation";
 				}
 				?>	
 				</td>
-				<td><?php echo $medic->name." ".$pacient->lastname; ?></td>
+				<td><?php echo $medico; ?></td>
 				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
 				<td style="width:130px;">
-				<a href="index.php?view=editreservation&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
+				<a href="index.php?view=<?php echo $tipo;?>&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
 				<a href="index.php?action=delreservation&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
 				</td>
 				</tr>
