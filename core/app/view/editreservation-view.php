@@ -134,7 +134,7 @@ $medicines = MedicineData::getAll();
           <button type="submit" class="btn btn-default">Actualizar Cita</button>
           <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
           <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>
-          <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico</button>
+          <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico (PENDING)</button>
 
         </div>
       </div>
