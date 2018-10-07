@@ -1,6 +1,5 @@
 <?php
 require 'conexion.php';
-$where='';
 if(isset($_POST['medicine'])){
 $reservation = R::dispense( 'reservations_medicines' );
 $reservation->reservation_id=$_POST['cita'];

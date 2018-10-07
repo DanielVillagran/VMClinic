@@ -76,7 +76,7 @@ $('#agregarMedicine').click(function (){
 	$.ajax({
 		url:"core/app/querys/get_medicines.php",
 		type:'post',
-		data: {'medicine':medicine,"dosis":dosis,'cita':cita},
+		data: {'medicine':medicine,'dosis':dosis,'cita':cita},
 		dataType:'json',
 		success(data) {
 			$('#tabla_medicamentos').hide();
