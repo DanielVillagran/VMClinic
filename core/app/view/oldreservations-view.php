@@ -33,12 +33,7 @@
 				if(isset($user->pacient_id)&&$user->pacient_id!=""){
 					$pacient  = $user->getPacient();
 				}
-				$medico="";
-				if(isset($user->medic_id)&&$user->medic_id!=""){
-						$medic = $user->getMedic();
-						$medico=$medic->name." ".$medic->lastname;
-					}
-				?>
+				$medic = $user->getMedic();
 				?>
 				<tr>
 				<td><?php echo $user->title; ?></td>
@@ -50,7 +45,7 @@
 				}
 				?>	
 				</td>
-				<td><?php echo $medico; ?></td>
+				<td><?php echo $medic->name." ".$pacient->lastname; ?></td>
 				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
 				<td style="width:130px;">
 				<a href="index.php?view=editreservation&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
