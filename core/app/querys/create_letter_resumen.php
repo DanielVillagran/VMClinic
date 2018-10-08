@@ -1,9 +1,9 @@
     <?php 
+    require 'conexion.php';
     $telefono="";
     $domicilio="";
     $edad="";
-    if(isset($_POST['id'])){
-        require 'conexion'; 
+    if(isset($_POST['id'])){ 
         $lista=R::find('pacient','id='.$_POST['id']);
         foreach ($lista as $key) {
             $telefono=$key->phone;
