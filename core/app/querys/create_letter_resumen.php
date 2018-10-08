@@ -4,7 +4,7 @@
     $edad="";
     if(isset($_POST['id'])){
         require 'conexion'; 
-        $lista=R::find('pacient',"id={$_POST['id']}");
+        $lista=R::find('pacient','id='.$_POST['id']);
         foreach ($lista as $key) {
             $telefono=$key->phone;
             $domicilio=$key->address;
