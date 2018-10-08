@@ -73,7 +73,7 @@ $medicines = MedicineData::getAll();
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Medicamento</label>
             <div class="col-lg-3">
-             <select name="medicine_id" id="medicine_id"  class="form-control" required>
+             <select name="medicine_id" id="medicine_id"  class="form-control">
               <option value="">-- SELECCIONE --</option>
               <?php foreach($medicines as $p):?>
                 <option value="<?php echo $p->id; ?>"> <?php  echo $p->name ?></option>
