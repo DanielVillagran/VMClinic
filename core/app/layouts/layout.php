@@ -66,7 +66,7 @@
                   </li>
                   <li>
                       <a href="./?view=medics">
-                          <i class="fa fa-user_md"></i>
+                          <i class="fa fa-user-md"></i>
                           <p>Medicos</p>
                       </a>
                   </li>
