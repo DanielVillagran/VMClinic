@@ -49,27 +49,29 @@ $payments = PaymentData::getAll();
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Nota</label>
-    <div class="col-lg-10">
-    <textarea class="form-control" name="note" placeholder="Nota"></textarea>
-    </div>
-  </div>
-    <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Enfermedad</label>
-    <div class="col-lg-10">
-    <textarea class="form-control" name="sick" placeholder="Enfermedad"></textarea>
-    </div>
-  </div>
-      <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Sintomas</label>
     <div class="col-lg-10">
     <textarea class="form-control" name="symtoms" placeholder="Sintomas"></textarea>
     </div>
   </div>
-        <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Medicamentos</label>
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Impresión Diagnóstico</label>
     <div class="col-lg-10">
-    <textarea class="form-control" name="medicaments" placeholder="Medicamentos"></textarea>
+    <textarea class="form-control" name="note" placeholder="Impresión Diagnóstico"></textarea>
+    </div>
+  </div>
+  
+    <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Pronóstico</label>
+    <div class="col-lg-10">
+    <textarea class="form-control" name="sick" placeholder="Pronóstico"></textarea>
+    </div>
+  </div>
+     
+        <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Tratamiento</label>
+    <div class="col-lg-10">
+    <textarea class="form-control" name="medicaments" placeholder="Tratamiento"></textarea>
     </div>
   </div>
   <div class="form-group">
