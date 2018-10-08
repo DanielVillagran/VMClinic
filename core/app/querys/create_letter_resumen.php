@@ -9,9 +9,9 @@
             $telefono=$key->phone;
             $domicilio=$key->address;
             $date = new DateTime($key->day_of_birth);
-            //$now = new DateTime();
-            //$interval = $now->diff($date);
-            //$edad=$interval->y;
+            $now = new DateTime();
+            $interval = $now->diff($date);
+            $edad=$interval->y;
             
         }
 
