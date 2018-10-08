@@ -1,4 +1,8 @@
-<?php $user = PacientData::getById($_GET["id"]); ?>
+<?php 
+$user = PacientData::getById($_GET["id"]); 
+$state = StateData::getStates();
+$muni = MuniData::getMuni();
+?>
 <div class="row">
     <div class="col-md-12">
 
@@ -98,15 +102,21 @@
                     <div class="form-group">
                         <label for="inputEmail1" class="col-lg-2 control-label">Estado*</label>
                         <div class="col-md-6">
-                            <input type="text" name="state" value="<?php echo trim($user->state); ?>"
-                                   class="form-control" id="state" placeholder="Estado">
+                            <select name="state" class="form-control" id="state" >
+                            <?php foreach ($state as $s): ?>
+                                <option value="<?php echo $s->id; ?>" <?php if($s->id==$user->state){ echo "selected"; }?>><?php echo  $s->name; ?></option>
+                            <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputEmail1" class="col-lg-2 control-label">Municipio*</label>
                         <div class="col-md-6">
-                            <input type="text" name="municipal" value="<?php echo trim($user->municipal); ?>"
-                                   class="form-control" id="municipal" placeholder="Municipio">
+                            <select name="municipal" class="form-control" id="municipal" >
+                                <?php foreach ($muni as $s): ?>
+                                    <option value="<?php echo $s->id; ?>" <?php if($s->id==$user->municipal){ echo "selected"; }?>><?php echo  $s->name; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

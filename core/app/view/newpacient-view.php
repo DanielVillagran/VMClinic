@@ -95,7 +95,7 @@ $muni = MuniData::getMuni();
                     <div class="form-group">
                         <label for="inputEmail1" class="col-lg-2 control-label">Estado*</label>
                         <div class="col-md-6">
-                            <select name="" class="form-control" id="state" >
+                            <select name="state" class="form-control" id="state" >
                             <?php foreach ($state as $s): ?>
                                 <option value="<?php echo $s->id; ?>"><?php echo  $s->name; ?></option>
                             <?php endforeach; ?>
@@ -105,7 +105,7 @@ $muni = MuniData::getMuni();
                     <div class="form-group">
                         <label for="inputEmail1" class="col-lg-2 control-label">Municipio*</label>
                         <div class="col-md-6">
-                            <select name="" class="form-control" id="municipal" >
+                            <select name="municipal" class="form-control" id="municipal" >
                                 <?php foreach ($muni as $s): ?>
                                     <option value="<?php echo $s->id; ?>"><?php echo  $s->name; ?></option>
                                 <?php endforeach; ?>
