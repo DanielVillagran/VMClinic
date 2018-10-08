@@ -46,7 +46,7 @@
 					?>
 
 					<table class="table table-bordered table-hover table-responsive">
-						<thead class="thead-dark">
+						<thead style="background-color:#12548E; color:white;">
 							<th>Folio</th>
 							<th>Nombre completo</th>
 							<th>Direccion</th>

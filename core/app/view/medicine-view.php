@@ -15,7 +15,7 @@
 			?>
 
 			<table class="table table-bordered table-hover">
-			<thead class="thead-dark">
+			<thead style="background-color:#12548E; color:white;">
 			<th>Nombre</th>
 			<th>URL de consulta</th>
 			<th style="width:80px;"></th>
