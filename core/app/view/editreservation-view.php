@@ -87,7 +87,7 @@ $medicines = MedicineData::getAll();
          <button type="button" class="btn btn-default" id="agregarMedicine">Agregar Medicamento</button>
        </div>
        <table style="display: none;" id="tabla_medicamentos" class="table table-bordered table-hover">
-        <thead>
+        <thead class="thead-dark">
           <th>Medicamento</th>
           <th>Dosis</th>
           <th></th>

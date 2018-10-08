@@ -21,7 +21,7 @@
 			?>
 
 			<table class="table table-bordered table-hover">
-			<thead>
+			<thead class="thead-dark">
 			<th>Asunto</th>
 			<th>Paciente</th>
 			<th>Medico</th>

@@ -15,7 +15,7 @@
 			?>
 
 			<table class="table table-bordered table-hover">
-			<thead>
+			<thead class="thead-dark">
 			<th>Nombre</th>
 			<th>URL de consulta</th>
 			<th style="width:80px;"></th>

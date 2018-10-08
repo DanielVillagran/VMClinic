@@ -25,7 +25,7 @@
 			?>
 
 			<table class="table table-bordered table-hover">
-			<thead>
+			<thead class="thead-dark">
 			<th>Articulo</th>
 			<th>Cantidad</th>
 			<th>Fecha de Caducidad</th>

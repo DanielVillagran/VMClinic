@@ -139,8 +139,8 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_G
 			<div class="panel panel-default">
 			<div class="panel-heading">
 			Reportes</div>
-			<table class="table table-bordered table-hover thead-dark">
-			<thead>
+			<table class="table table-bordered table-hover">
+			<thead class="thead-dark">
 			<th>Asunto</th>
 			<th>Paciente</th>
 			<th>Medico</th>

@@ -119,7 +119,7 @@ if($_GET["q"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ){
 			// si hay usuarios
 			?>
 			<table class="table table-bordered table-hover">
-			<thead>
+			<thead class="thead-dark">
 			<th>Asunto</th>
 			<th>Paciente</th>
 			<th>Medico</th>

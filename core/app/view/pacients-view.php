@@ -46,7 +46,7 @@
 					?>
 
 					<table class="table table-bordered table-hover table-responsive">
-						<thead>
+						<thead class="thead-dark">
 							<th>Folio</th>
 							<th>Nombre completo</th>
 							<th>Direccion</th>
