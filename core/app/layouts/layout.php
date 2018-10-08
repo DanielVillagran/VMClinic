@@ -66,13 +66,13 @@
                   </li>
                   <li>
                       <a href="./?view=medics">
-                          <i class="fa fa-support"></i>
+                          <i class="fa fa-user_md"></i>
                           <p>Medicos</p>
                       </a>
                   </li>
                   <li>
                       <a href="./?view=medicine">
-                          <i class="fa fa-support"></i>
+                          <i class="fa fa-medkit"></i>
                           <p>Medicamentos</p>
                       </a>
                   </li>

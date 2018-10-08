@@ -69,6 +69,31 @@ $('#imprimirReceta').click(function () {
 					}
 				});
 });
+
+$('#imprimirResumen').click(function () {
+	var fullDate = new Date();
+	const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
+	];
+	var fecha= fullDate.getDate()+" de "+monthNames[(fullDate.getMonth())]+" del "+ fullDate.getFullYear();
+	var paciente= $("#pacient_id option[value='"+$("#pacient_id").val()+"']").text();
+	var id=$("#pacient_id").val();
+	var asunto=$("#asunto").val();
+
+	
+	$.ajax({
+		url:"core/app/querys/create_letter_resumen.php",
+		type:'post',
+		data: {'fecha':fecha,'paciente':paciente,'id':id,'asunto':asunto},
+		dataType:'html',
+		success() {
+			$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/receta"+paciente+".docx");
+			$("#vinculoConsentimiento").click();
+			var w=window.open("core/app/querys/Resources/constancia"+paciente+".docx");
+			w.print();
+		}
+	});
+});
+
 $('#agregarMedicine').click(function (){
 	var medicine= $("#medicine_id option[value='"+$("#medicine_id").val()+"']").text();
 	var dosis=$("#dosis").val();

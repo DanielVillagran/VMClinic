@@ -18,7 +18,7 @@ $medicines = MedicineData::getAll();
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Asunto</label>
             <div class="col-lg-10">
-              <input type="text" name="title" value="<?php echo $reservation->title; ?>" required class="form-control" id="inputEmail1" placeholder="Asunto">
+              <input type="text" name="title" value="<?php echo $reservation->title; ?>" required class="form-control" id="asunto" placeholder="Asunto">
             </div>
           </div>
           <div class="form-group">
@@ -134,7 +134,7 @@ $medicines = MedicineData::getAll();
           <button type="submit" class="btn btn-default">Actualizar Cita</button>
           <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
           <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>
-          <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico (PENDING)</button>
+          <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico</button>
 
         </div>
       </div>
