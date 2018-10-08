@@ -139,7 +139,7 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_G
 			<div class="panel panel-default">
 			<div class="panel-heading">
 			Reportes</div>
-			<table class="table table-bordered table-hover">
+			<table class="table table-bordered table-hover thead-dark">
 			<thead>
 			<th>Asunto</th>
 			<th>Paciente</th>
@@ -155,7 +155,11 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_G
 				if(isset($user->pacient_id)&&$user->pacient_id!=""){
 					$pacient  = $user->getPacient();
 				}
-				$medic = $user->getMedic();
+				$medico="";
+				if(isset($user->medic_id)&&$user->medic_id!=""){
+						$medic = $user->getMedic();
+						$medico=$medic->name." ".$medic->lastname;
+					}
 				?>
 				<tr>
 				<td><?php echo $user->title; ?></td>
@@ -167,7 +171,7 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_G
 				}
 				?>	
 				</td>
-				<td><?php echo $medic->name." ".$medic->lastname; ?></td>
+				<td><?php echo $medico; ?></td>
 				<td><?php echo $user->date_at." ".$user->time_at; ?></td>
 				<td><?php echo $user->getStatus()->name; ?></td>
 				<td><?php echo $user->getPayment()->name; ?></td>
