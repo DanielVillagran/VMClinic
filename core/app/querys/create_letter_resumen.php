@@ -2,7 +2,7 @@
     require 'conexion.php';
     $telefono="";
     $domicilio="";
-    $edad="";
+    $edad="No proporcionado.";
     if(isset($_POST['id'])){ 
         $lista=R::find('pacient','id='.$_POST['id']);
         foreach ($lista as $key) {
@@ -42,7 +42,7 @@
 
             $timestamp = date('d-M-Y H:i:s');
 
-            $message = str_replace("%PACIENTE%", $paciente,                  $message);      
+            $message = str_replace("%NOMBRE%", $paciente,                  $message);      
             $message = str_replace("%HOY%", $fecha,           $message); 
             $message = str_replace("%EDAD%", $edad,                  $message);      
             $message = str_replace("%TELEFONO%", $telefono,           $message);
