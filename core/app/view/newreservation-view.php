@@ -48,12 +48,7 @@ $payments = PaymentData::getAll();
       <input type="time" name="time_at" required class="form-control" id="inputEmail1" placeholder="Hora">
     </div>
   </div>
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Sintomas</label>
-    <div class="col-lg-10">
-    <textarea class="form-control" name="symtoms" placeholder="Sintomas"></textarea>
-    </div>
-  </div>
+ 
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Impresión Diagnóstico</label>
     <div class="col-lg-10">
@@ -67,11 +62,17 @@ $payments = PaymentData::getAll();
     <textarea class="form-control" name="sick" placeholder="Pronóstico"></textarea>
     </div>
   </div>
-     
-        <div class="form-group">
+  <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Tratamiento</label>
     <div class="col-lg-10">
-    <textarea class="form-control" name="medicaments" placeholder="Tratamiento"></textarea>
+    <textarea class="form-control" name="symtoms" placeholder="Tratamiento"></textarea>
+    </div>
+  </div>
+     
+        <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Medicamentos</label>
+    <div class="col-lg-10">
+    <textarea class="form-control" name="medicaments" placeholder="Medicamentos"></textarea>
     </div>
   </div>
   <div class="form-group">
