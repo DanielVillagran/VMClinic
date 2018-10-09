@@ -65,6 +65,12 @@
                       </a>
                   </li>
                   <li>
+                      <a href="./?view=documents">
+                          <i class="fa fa-male"></i>
+                          <p>Documentos</p>
+                      </a>
+                  </li>
+                  <li>
                       <a href="./?view=medics">
                           <i class="fa fa-user-md"></i>
                           <p>Medicos</p>
