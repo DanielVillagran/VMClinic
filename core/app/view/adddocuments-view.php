@@ -1,7 +1,7 @@
 <?php $pacients = PacientData::getAll(); ?>
 
 <div class="row">
-
+<div id="bodyfiles">
     <form role="form" id="data" method="post" action="core/app/querys/Upload_files.php" c enctype="multipart/form-data">
 
     <center>
@@ -19,7 +19,7 @@
                                     <select name="pacient_id" class="form-control" id='pacient_id' required>
                                         <option value="">-- SELECCIONE --</option>
                                         <?php foreach ($pacients as $p): ?>
-                                            <option value="<?php echo $p->id; ?>"><?php echo $p->id . " - " . $p->name . " " . $p->lastname; ?></option>
+                                            <option value="<?php echo $p->name; ?>"><?php echo $p->id . " - " . $p->name . " " . $p->lastname; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -27,8 +27,8 @@
                             <div>
                                 <select name="document_type" id="document_type" class='form-control'>
                                     <option value="">Tipo de Documento</option>
-                                    <option value="RayosX">Rayos X</option>
-                                    <option value="Analisis">Análisis Clínicos</option>
+                                    <option value="Rayos X">Rayos X</option>
+                                    <option value="An&aacute;lisis Cl&iacute;nicos">Análisis Clínicos</option>
                                 </select>
                             </div>
 
@@ -54,6 +54,6 @@
 </div>
 </div>
 
-
+</div>
 </div>
 <script type="text/javascript" src="assets/js/upload_files.js"></script>
