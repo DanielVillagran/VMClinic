@@ -19,7 +19,7 @@
                                     <select name="pacient_id" class="form-control" id='pacient_id' required>
                                         <option value="">-- SELECCIONE --</option>
                                         <?php foreach ($pacients as $p): ?>
-                                            <option value="<?php echo $p->name; ?>"><?php echo $p->id . " - " . $p->name . " " . $p->lastname; ?></option>
+                                            <option value="<?php echo $p->name. " " . $p->lastname; ?>"><?php echo $p->id . " - " . $p->name . " " . $p->lastname; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
