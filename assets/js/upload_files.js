@@ -21,6 +21,7 @@ $("#data").on('submit', function (eventObj){
          confirmButtonText: 'Aceptar'
        }).then((result) => {
         if (result.value) {
+          window.location.replace("?view=documents");
         }
       });
      }

@@ -44,16 +44,17 @@
                             <td style="width:280px;">
                                 <a target="_blank" href="core/app/querys/files/<?php echo $user->document; ?>"
                                    class="btn btn-default btn-xs">Descargar</a>
-                                <a href="index.php?view=delmedic&id=<?php echo $user->id; ?>"
+                                <a href="index.php?view=deldocuemnt&id=<?php echo $user->id; ?>"
                                    class="btn btn-danger btn-xs">Eliminar</a>
 
                             </td>
                         </tr>
                         <?php
+                    }
                         ?>
                         </table>
                         <?php
-                    }
+                    
 
 
                 } else {
