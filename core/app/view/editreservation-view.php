@@ -52,14 +52,14 @@ $medicines = MedicineData::getAll();
               <input type="time" name="time_at" value="<?php echo $reservation->time_at; ?>" required class="form-control" id="inputEmail1" placeholder="Hora">
             </div>
           </div>
-          <div class="form-group">
+         <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Impresión Diagnóstico</label>
             <div class="col-lg-4">
-              <textarea class="form-control" name="note" placeholder="Impresión Diagnóstico"><?php echo $reservation->note;?></textarea>
+              <textarea class="form-control" name="note" id="diagnostico" placeholder="Impresión Diagnóstico"><?php echo $reservation->note;?></textarea>
             </div>
             <label for="inputEmail1" class="col-lg-2 control-label">Pronóstico</label>
             <div class="col-lg-4">
-              <textarea class="form-control" name="sick" placeholder="Pronóstico"><?php echo $reservation->sick;?></textarea>
+              <textarea class="form-control" name="sick" id="pronostico" placeholder="Pronóstico"><?php echo $reservation->sick;?></textarea>
             </div>
 
           </div>
@@ -67,9 +67,10 @@ $medicines = MedicineData::getAll();
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Tratamiento</label>
             <div class="col-lg-4">
-              <textarea class="form-control" name="symtoms" placeholder="Tratamiento"><?php echo $reservation->symtoms;?></textarea>
+              <textarea class="form-control" name="symtoms" id="tratamiento" placeholder="Tratamiento"><?php echo $reservation->symtoms;?></textarea>
             </div>
           </div>
+          <input type="hidden" id="medicamentos">
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Medicamento</label>
             <div class="col-lg-3">

@@ -20,6 +20,10 @@
         $domicilio=$_POST['address'];
 
     }
+    $medicamentos=$_POST['medicamentos'];
+    $tratamiento=$_POST['tratamiento'];
+    $diagnostico=$_POST['diagnostico'];
+    $pronostico=$_POST['pronostico'];
     $asunto=$_POST['asunto'];
     $paciente=$_POST['paciente'];
     $fecha=$_POST['fecha'];
@@ -46,7 +50,11 @@
             $message = str_replace("%HOY%", $fecha,           $message); 
             $message = str_replace("%EDAD%", $edad,                  $message);      
             $message = str_replace("%TELEFONO%", $telefono,           $message);
-            $message = str_replace("%DOMICILIO%", $domicilio,                  $message);      
+            $message = str_replace("%DOMICILIO%", $domicilio,                  $message); 
+            $message = str_replace("%MEDICAMENTOS%", $medicamentos,           $message); 
+            $message = str_replace("%TRATAMIENTO%", $tratamiento,                  $message);      
+            $message = str_replace("%DIAGNOSTICO%", $diagnostico,           $message);
+            $message = str_replace("%PRONOSTICO%", $pronostico,                  $message);     
             $message = str_replace("%MOTIVO%", $asunto,           $message); 
             $zip_val->addFromString($key_file_name, $message);
             $zip_val->close();

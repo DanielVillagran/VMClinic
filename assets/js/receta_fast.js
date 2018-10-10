@@ -79,11 +79,16 @@ $('#imprimirResumen').click(function () {
 	var phone= $("#phone").val();
 	var address= $("#address").val();
 	var asunto=$("#asunto").val();
+	var medicamentos=$("#medicamentos").val();
+	var diagnostico=$("#diagnostico").val();
+	var pronostico=$("#pronostico").val();
+	var tratamiento=$("#tratamiento").val();
 	
 	$.ajax({
 		url:"core/app/querys/create_letter_resumen.php",
 		type:'post',
-		data: {'fecha':fecha,'paciente':paciente,'phone':phone,'address':address,'asunto':asunto},
+		data: {'fecha':fecha,'paciente':paciente,'phone':phone,'address':address,'asunto':asunto,'medicamentos':medicamentos,'diagnostico':diagnostico,
+		'pronostico':pronostico,'tratamiento':tratamiento},
 		dataType:'html',
 		success() {
 			$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/receta"+paciente+".docx");

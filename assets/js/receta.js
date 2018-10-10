@@ -8,12 +8,15 @@ $( document ).ready(function() {
 		success(data) {
 			$('#tabla_medicamentos').hide();
 			$('#tabla_medicamentos tbody').empty();
+			$("#medicamentos").empty();
 			$.each(data, function (i, item) {
 				$('#tabla_medicamentos').show();
 				$('#tabla_medicamentos tbody').append("<tr><td>"+item.medicine+"</td>\
 					<td>"+item.dosis+"</td>\
 					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
 					);
+				$("#medicamentos").append(item.medicine+"\n");
+
 			});
 		}
 	});
@@ -78,12 +81,17 @@ $('#imprimirResumen').click(function () {
 	var paciente= $("#pacient_id option[value='"+$("#pacient_id").val()+"']").text();
 	var id=$("#pacient_id").val();
 	var asunto=$("#asunto").val();
+	var medicamentos=$("#medicamentos").val();
+	var diagnostico=$("#diagnostico").val();
+	var pronostico=$("#pronostico").val();
+	var tratamiento=$("#tratamiento").val();
 
 	
 	$.ajax({
 		url:"core/app/querys/create_letter_resumen.php",
 		type:'post',
-		data: {'fecha':fecha,'paciente':paciente,'id':id,'asunto':asunto},
+		data: {'fecha':fecha,'paciente':paciente,'id':id,'asunto':asunto,'medicamentos':medicamentos,'diagnostico':diagnostico,
+		'pronostico':pronostico,'tratamiento':tratamiento},
 		dataType:'html',
 		success() {
 			$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/receta"+paciente+".docx");
@@ -106,12 +114,15 @@ $('#agregarMedicine').click(function (){
 		success(data) {
 			$('#tabla_medicamentos').hide();
 			$('#tabla_medicamentos tbody').empty();
+			$("#medicamentos").empty();
 			$.each(data, function (i, item) {
 				$('#tabla_medicamentos').show();
 				$('#tabla_medicamentos tbody').append("<tr><td>"+item.medicine+"</td>\
 					<td>"+item.dosis+"</td>\
 					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
 					);
+				$("#medicamentos").append(item.medicine+"\n");
+
 			});
 		}
 	});

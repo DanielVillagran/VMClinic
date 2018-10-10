@@ -66,7 +66,7 @@
                   </li>
                   <li>
                       <a href="./?view=documents">
-                          <i class="fa fa-male"></i>
+                          <i class="fa fa-document"></i>
                           <p>Documentos</p>
                       </a>
                   </li>
