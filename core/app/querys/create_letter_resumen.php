@@ -52,7 +52,7 @@
             $message = str_replace("%TELEFONO%", $telefono,           $message);
             $message = str_replace("%DOMICILIO%", $domicilio,                  $message); 
             $message = str_replace("%MEDICAMENTOS%", $medicamentos,           $message); 
-            $message = str_replace("%TRATAMIENTO%", $tratamiento,                  $message);      
+            $message = str_replace("%TRATAMIENTO%", $medicamentos,                  $message);      
             $message = str_replace("%DIAGNOSTICO%", $diagnostico,           $message);
             $message = str_replace("%PRONOSTICO%", $pronostico,                  $message);     
             $message = str_replace("%MOTIVO%", $asunto,           $message); 
