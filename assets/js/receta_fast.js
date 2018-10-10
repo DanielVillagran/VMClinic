@@ -74,7 +74,7 @@ $('#imprimirReceta').click(function () {
 });
 
 $('#imprimirResumen').click(function () {
-	alert($("#medicamentos").val());
+	alert($("#medicamentos").html());
 	var fullDate = new Date();
 	const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
 	];
@@ -83,7 +83,7 @@ $('#imprimirResumen').click(function () {
 	var phone= $("#phone").val();
 	var address= $("#address").val();
 	var asunto=$("#asunto").val();
-	var medicamentos=$("#medicamentos").val();
+	var medicamentos=$("#medicamentos").html();
 	var diagnostico=$("#diagnostico").val();
 	var pronostico=$("#pronostico").val();
 	var tratamiento=$("#tratamiento").val();
