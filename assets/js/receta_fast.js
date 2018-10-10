@@ -74,6 +74,7 @@ $('#imprimirReceta').click(function () {
 });
 
 $('#imprimirResumen').click(function () {
+	alert($("#medicamentos").val());
 	var fullDate = new Date();
 	const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
 	];
