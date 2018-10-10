@@ -70,7 +70,7 @@ $medicines = MedicineData::getAll();
               <textarea class="form-control" name="symtoms" id="tratamiento" placeholder="Tratamiento"><?php echo $reservation->symtoms;?></textarea>
             </div>
           </div>
-          <input type="hidden" id="medicamentos">
+          <div style="display: none;" id="medicamentos"></div>
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Medicamento</label>
             <div class="col-lg-3">

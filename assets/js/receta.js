@@ -81,7 +81,7 @@ $('#imprimirResumen').click(function () {
 	var paciente= $("#pacient_id option[value='"+$("#pacient_id").val()+"']").text();
 	var id=$("#pacient_id").val();
 	var asunto=$("#asunto").val();
-	var medicamentos=$("#medicamentos").val();
+	var medicamentos=$("#medicamentos").html();
 	var diagnostico=$("#diagnostico").val();
 	var pronostico=$("#pronostico").val();
 	var tratamiento=$("#tratamiento").val();
