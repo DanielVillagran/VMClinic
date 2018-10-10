@@ -15,7 +15,7 @@ $( document ).ready(function() {
 					<td>"+item.dosis+"</td>\
 					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
 					);
-				$("#medicamentos").append(item.dosis+"     "item.medicine+"\n");
+				$("#medicamentos").append(item.dosis+"     "+item.medicine+"\n");
 
 			});
 		}
@@ -121,7 +121,7 @@ $('#agregarMedicine').click(function (){
 					<td>"+item.dosis+"</td>\
 					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
 					);
-				$("#medicamentos").append(item.dosis+"     "item.medicine+"\n");
+				$("#medicamentos").append(item.dosis+"     "+item.medicine+"\n");
 
 			});
 		}
