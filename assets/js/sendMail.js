@@ -39,7 +39,7 @@ function sendMail(email) {
         type: 'info',
         title: 'Enviar Correo',
         html: "Asunto<br><input type='text' id='asunto' class='form-control'>\
-		<br>Mensaje<br><input type='text' id='mensaje' class='form-control'>",
+		<br>Mensaje<br><textarea name='' id='mensaje' class='form-control' cols='30' rows='10'></textarea>",
         showCancelButton: true,
 
     }).then((result) => {
