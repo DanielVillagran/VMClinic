@@ -1,6 +1,6 @@
 <?php
 $pacients = PacientData::getAll();
-$medics = MedicData::getAll();
+$medics = MedicData::getAllWithCategory();
 
 $statuses = StatusData::getAll();
 $payments = PaymentData::getAll();
@@ -34,7 +34,7 @@ $payments = PaymentData::getAll();
 <select name="medic_id" class="form-control" required>
 <option value="">-- SELECCIONE --</option>
   <?php foreach($medics as $p):?>
-    <option value="<?php echo $p->id; ?>"><?php echo $p->id." - ".$p->name." ".$p->lastname; ?></option>
+    <option value="<?php echo $p->id; ?>"><?php echo $p->id." - ".$p->name." ".$p->lastname.", ".$p->categoria; ?></option>
   <?php endforeach; ?>
 </select>
     </div>
