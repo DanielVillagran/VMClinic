@@ -72,25 +72,17 @@ $medicines = MedicineData::getAll();
           </div>
           <div style="display: none;" id="medicamentos"></div>
           <div class="form-group">
+              <a class="btn btn-link" href="https://www.vademecum.es/medicamentos-a_1">MEDICAMENTOS VADECUM</a>
             <label for="inputEmail1" class="col-lg-2 control-label">Medicamento</label>
-            <div class="col-lg-3">
-             <select name="medicine_id" id="medicine_id"  class="form-control">
-              <option value="">-- SELECCIONE --</option>
-              <?php foreach($medicines as $p):?>
-                <option value="<?php echo $p->id; ?>"> <?php  echo $p->name ?></option>
-              <?php endforeach; ?>
-            </select> 
-          </div>
-          <label for="inputEmail1" class="col-lg-2 control-label">Dosis</label>
-          <div class="col-lg-2">
-           <input type="text" name="dosis" value="" class="form-control" id="dosis" placeholder="Dosis">
+
+          <div class="col-lg-6">
+           <input type="text" name="dosis" value="" class="form-control" id="dosis" placeholder="Medicación">
          </div>
          <button type="button" class="btn btn-default" id="agregarMedicine">Agregar Medicamento</button>
        </div>
        <table style="display: none;" id="tabla_medicamentos" class="table table-bordered table-hover">
         <thead class="thead-dark">
           <th>Medicamento</th>
-          <th>Dosis</th>
           <th></th>
         </thead>
         <tbody>

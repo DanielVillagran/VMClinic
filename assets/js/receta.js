@@ -11,11 +11,10 @@ $( document ).ready(function() {
 			$("#medicamentos").empty();
 			$.each(data, function (i, item) {
 				$('#tabla_medicamentos').show();
-				$('#tabla_medicamentos tbody').append("<tr><td>"+item.medicine+"</td>\
-					<td>"+item.dosis+"</td>\
+				$('#tabla_medicamentos tbody').append("<tr><td>"+item.dosis+"</td>\
 					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
 					);
-				$("#medicamentos").append(item.dosis+"     "+item.medicine+"                           ");
+				$("#medicamentos").append(item.dosis);
 
 			});
 		}
