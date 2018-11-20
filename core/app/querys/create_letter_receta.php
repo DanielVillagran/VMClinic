@@ -6,6 +6,7 @@
     $temp=$_POST['temp'];
     $fc=$_POST['fc'];
     $sato=$_POST['sato'];
+    $med=$_POST['med'];
     $paciente=$_POST['paciente'];
     $fecha=$_POST['fecha'];
     $template_file_name = 'Resources/receta.docx';
@@ -36,6 +37,7 @@
             $message = str_replace("%FR%", $fr,       $message);
             $message = str_replace("%TEMPERATURA%", $temp,           $message);
             $message = str_replace("%SATO%", $sato,       $message);
+            $message = str_replace("%MED%", $med,       $message);
 
             $zip_val->addFromString($key_file_name, $message);
             $zip_val->close();

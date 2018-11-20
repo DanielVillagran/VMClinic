@@ -72,7 +72,7 @@ $medicines = MedicineData::getAll();
           </div>
           <div style="display: none;" id="medicamentos"></div>
           <div class="form-group">
-              <a class="btn btn-link" href="https://www.vademecum.es/medicamentos-a_1">MEDICAMENTOS VADECUM</a>
+              <a class="btn ctn" href="https://www.vademecum.es/medicamentos-a_1">MEDICAMENTOS VADECUM</a>
             <label for="inputEmail1" class="col-lg-2 control-label">Medicamento</label>
 
           <div class="col-lg-6">

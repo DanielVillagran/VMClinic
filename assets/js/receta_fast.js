@@ -11,11 +11,10 @@ $( document ).ready(function() {
 			$("#medicamentos").empty();
 			$.each(data, function (i, item) {
 				$('#tabla_medicamentos').show();
-				$('#tabla_medicamentos tbody').append("<tr><td>"+item.medicine+"</td>\
-					<td>"+item.dosis+"</td>\
+                $('#tabla_medicamentos tbody').append("<tr><td>"+item.dosis+"</td>\
 					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
-					);
-				$("#medicamentos").append(item.dosis+"     "+item.medicine+"                                     ");
+                );
+                $("#medicamentos").append(item.dosis);
 
 			});
 		}
@@ -28,7 +27,7 @@ $('#imprimirReceta').click(function () {
 	var fecha= fullDate.getDate()+" de "+monthNames[(fullDate.getMonth())]+" del "+ fullDate.getFullYear();
 	var paciente= $("#nombre").val();
 	var doctor=$("#medic_id option[value='"+$("#medic_id").val()+"']").text();
-
+    var medicamentos=$("#medicamentos").html();
 	var consentimiento="Su puuta madre";
 	swal({
 		type: 'info',
@@ -59,7 +58,7 @@ $('#imprimirReceta').click(function () {
 						$.ajax({
 							url:"core/app/querys/create_letter_receta.php",
 							type:'post',
-							data: {'fecha':fecha,'paciente':paciente,'edad':edad,'peso':peso,'ta':ta,'fc':fc,'fr':fr,'temp':temp,'sato':sato},
+							data: {'fecha':fecha,'paciente':paciente,'edad':edad,'peso':peso,'ta':ta,'fc':fc,'fr':fr,'temp':temp,'sato':sato,'med':medicamentos},
 							dataType:'html',
 							success() {
 								$("#vinculoConsentimiento").attr("href","core/app/querys/Resources/receta"+paciente+".docx");
@@ -112,16 +111,16 @@ $('#agregarMedicine').click(function (){
 		data: {'medicine':medicine,'dosis':dosis,'cita':cita},
 		dataType:'json',
 		success(data) {
+			$('#dosis').val('');
 			$('#tabla_medicamentos').hide();
 			$('#tabla_medicamentos tbody').empty();
 			$("#medicamentos").empty();
 			$.each(data, function (i, item) {
 				$('#tabla_medicamentos').show();
-				$('#tabla_medicamentos tbody').append("<tr><td>"+item.medicine+"</td>\
-					<td>"+item.dosis+"</td>\
+                $('#tabla_medicamentos tbody').append("<tr><td>"+item.dosis+"</td>\
 					<td><a onclick='eliminar("+item.id+")' class='btn btn-danger btn-xs'>Eliminar</a></td></tr>"
-					);
-				$("#medicamentos").append(item.dosis+"     "+item.medicine+"                                     ");
+                );
+                $("#medicamentos").append(item.dosis);
 
 			});
 		}
