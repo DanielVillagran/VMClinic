@@ -51,7 +51,11 @@ class MedicData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new MedicData());
 	}
-
+    public static function getAllWithCategory(){
+        $sql = "select t.*, c.name as categoria from ".self::$tablename." t inner join category c on c.id = category_id order by created_at desc";
+        $query = Executor::doit($sql);
+        return Model::many($query[0],new MedicData());
+    }
 	public static function getAllActive(){
 		$sql = "select * from client where last_active_at>=date_sub(NOW(),interval 3 second)";
 		$query = Executor::doit($sql);
