@@ -66,29 +66,52 @@ $data=null;
               <input type="text" name="title" value="<?php if($data!=null) echo $data->afiliacion; ?>" required class="form-control" id="afiliacion" placeholder="No de afiliacion">
             </div>
           </div>
-         
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Antecedentes padre</label>
+            <div class="col-md-6">
+              <label class="checkbox-inline">
+                <input type="radio" id="inlineCheckboxpadre1" name="padre"
+                required <?php if ($user->padre == "1") {
+                  echo "checked";
+                } ?> value="1"> SI
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" id="inlineCheckboxpadre2" name="padre"
+                required <?php if ($user->padre == "0") {
+                  echo "checked";
+                } ?> value="0"> NO
+              </label>
 
-      
+            </div>
+            <div class="col-md-6">
+            <label for="inputEmail1" class="col-lg-2 control-label">Observaciones Padre</label>
+            
+              <input type="text" name="title" value="<?php if($data!=null) echo $data->obspadre; ?>" required class="form-control" id="obsppadre" placeholder="Observaciones Padre">
+            </div>
+          </div>
 
-      <div class="form-group">
-        <div class="col-lg-offset-2">
-          <input type="hidden" name="id" id="id" value="<?php if($data!=null) echo $data->id; ?>">
-          <input type="hidden" name="id" id="pacient_id" value="<?php echo $user->id; ?>">
-          <button type="submit" class="btn btn-default">Actualizar Historia medica</button>
 
-        </div>
-      </div>
-    </form>
-    <div style="display: none;">
-      <a href="" id="vinculoConsentimiento" download>
 
-      </div>
-      <div style="display: none;">
-        <a href="" id="vinculoReceta" download>
+
+          <div class="form-group">
+            <div class="col-lg-offset-2">
+              <input type="hidden" name="id" id="id" value="<?php if($data!=null) echo $data->id; ?>">
+              <input type="hidden" name="id" id="pacient_id" value="<?php echo $user->id; ?>">
+              <button type="submit" class="btn btn-default">Actualizar Historia medica</button>
+
+            </div>
+          </div>
+        </form>
+        <div style="display: none;">
+          <a href="" id="vinculoConsentimiento" download>
+
+          </div>
+          <div style="display: none;">
+            <a href="" id="vinculoReceta" download>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<script type="text/javascript" src="assets/js/consentimiento.js"></script>
-<script type="text/javascript" src="assets/js/receta.js"></script>
+    <script type="text/javascript" src="assets/js/consentimiento.js"></script>
+    <script type="text/javascript" src="assets/js/receta.js"></script>
