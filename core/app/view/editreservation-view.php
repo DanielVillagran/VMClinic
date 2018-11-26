@@ -1,7 +1,7 @@
 <?php 
 $reservation = ReservationData::getById($_GET["id"]);
 $pacients = PacientData::getAll();
-$medics = MedicData::getAll();
+$medics = MedicData::getAllWithCategory();
 $statuses = StatusData::getAll();
 $payments = PaymentData::getAll();
 $medicines = MedicineData::getAll();
@@ -34,9 +34,9 @@ $medicines = MedicineData::getAll();
             <label for="inputEmail1" class="col-lg-2 control-label">Medico</label>
             <div class="col-lg-4">
               <select name="medic_id" id="medic_id"  class="form-control" required>
-                <option value="">-- SELECCIONE --</option>
+               <option value="">-- SELECCIONE --</option>
                 <?php foreach($medics as $p):?>
-                  <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->medic_id){ echo "selected"; }?>><?php echo $p->name." ".$p->lastname; ?></option>
+                  <option value="<?php echo $p->id; ?>" <?php if($p->id==$reservation->medic_id){ echo "selected"; }?>><?php echo $p->id." - ".$p->name." ".$p->lastname.', '.$p->categoria; ?></option>
                 <?php endforeach; ?>
               </select>
             </div>
@@ -121,27 +121,49 @@ $medicines = MedicineData::getAll();
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="col-lg-offset-2">
-          <input type="hidden" name="id" id="id" value="<?php echo $reservation->id; ?>">
-          <button type="submit" class="btn btn-default">Actualizar Cita</button>
-          <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>
-          <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>
-          <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico</button>
+     <div class="col-md-3"></div>
+            <input type="hidden" name="id" id="id" value="<?php echo $reservation->id; ?>">
+            <div class="col-md-3">
+            <button type="submit" class="btn btn-default">Actualizar Cita</button>
+            </div>
+            <div class="col-md-3">
+            <div class="dropdown show">
+                <a class="btn btn-success dropdown-toggle" style="width: 300px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Imprimir Reportes    <span class="caret"></span>
+                </a>
 
-        </div>
-      </div>
-    </form>
-    <div style="display: none;">
-      <a href="" id="vinculoConsentimiento" download>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width: 300px; margin-bottom: 30px;">
+                    <a style="color: black; padding: 7px;" class="dropdown-item" id="imprimirConsentimiento" href="#">Imprimir Consentimiento</a>
+                    <hr>
+                    <a style="color: black; padding: 7px;" type="button" class="dropdown-item" id="imprimirReceta" href="#">Imprimir Receta</a>
+                    <hr>
+                    <a style="color: black; padding: 7px;" class="dropdown-item" id="imprimirResumen" href="#">Imprimir Constancia Clínica</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-3"></div>
 
-      </div>
-      <div style="display: none;">
-        <a href="" id="vinculoReceta" download>
+            <!--          <div class="form-group">-->
+<!--            <div class="col-lg-offset-2 col-lg-10">-->
+<!--              <input type="hidden" name="id" id="id" value="--><?php //echo $reservation->id; ?><!--">-->
+<!---->
+<!--              <button type="button" id="imprimirConsentimiento" class="btn btn-default">Imprimir Consentimiento</button>-->
+<!--              <button type="button" id="imprimirReceta" class="btn btn-default">Imprimir Mediciones</button>-->
+<!--              <button type="button" id="imprimirResumen" class="btn btn-default">Imprimir Resumen medico</button>-->
+<!---->
+<!--            </div>-->
+<!--          </div>-->
+        </form>
+        <div style="display: none;">
+          <a href="" id="vinculoConsentimiento" download>
+
+          </div>
+          <div style="display: none;">
+            <a href="" id="vinculoReceta" download>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 <script type="text/javascript" src="assets/js/consentimiento.js"></script>
 <script type="text/javascript" src="assets/js/receta.js"></script>
