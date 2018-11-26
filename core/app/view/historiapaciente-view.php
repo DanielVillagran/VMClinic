@@ -112,6 +112,52 @@ $data=null;
               <input type="text" name="title" value="<?php if($data!=null) echo $data->obsmadre; ?>" required class="form-control" id="obspmadre" placeholder="Observaciones Madre">
             </div>
           </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Antecedentes Abuelo Paterno</label>
+            <div class="col-md-6">
+              <label class="checkbox-inline">
+                <input type="radio" id="inlineCheckboxabuelopa1" name="abuelopa"
+                required <?php if ($user->abuelopa == "1") {
+                  echo "checked";
+                } ?> value="1"> SI
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" id="inlineCheckboxabuelopa2" name="abuelopa"
+                required <?php if ($user->abuelopa == "0") {
+                  echo "checked";
+                } ?> value="0"> NO
+              </label>
+            </div>           
+          </div>
+          <div class="form-group">  
+             <label for="inputEmail1" class="col-lg-2 control-label">Observaciones Madre</label>
+            <div class="col-md-6">
+              <input type="text" name="title" value="<?php if($data!=null) echo $data->obsabuelopa; ?>" required class="form-control" id="obspabuelopa" placeholder="Observaciones Madre">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Antecedentes Abuela Paterna</label>
+            <div class="col-md-6">
+              <label class="checkbox-inline">
+                <input type="radio" id="inlineCheckboxabuelapa1" name="abuelapa"
+                required <?php if ($user->abuelapa == "1") {
+                  echo "checked";
+                } ?> value="1"> SI
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" id="inlineCheckboxabuelapa2" name="abuelapa"
+                required <?php if ($user->abuelapa == "0") {
+                  echo "checked";
+                } ?> value="0"> NO
+              </label>
+            </div>           
+          </div>
+          <div class="form-group">  
+             <label for="inputEmail1" class="col-lg-2 control-label">Observaciones Padre</label>
+            <div class="col-md-6">
+              <input type="text" name="title" value="<?php if($data!=null) echo $data->obsabuelapa; ?>" required class="form-control" id="obspabuelapa" placeholder="Observaciones Padre">
+            </div>
+          </div>
 
 
 
