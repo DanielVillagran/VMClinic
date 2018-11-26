@@ -73,7 +73,7 @@
 								<a href="index.php?view=pacienthistory&id=<?php echo $user->id;?>" class="btn btn-default btn-xs">Historial</a>
 								<a href="index.php?view=editpacient&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
 								<a href="index.php?view=delpacient&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
-                                <a href="mailto:<?php echo $user->email;?>?subject=Dieta" class="btn btn-default btn-xs">Enviar Dieta</a>
+                                <button type="button" id="sendMail" onclick="sendMail('<?php echo $user->email; ?>')"  class="btn btn-default btn-xs">Enviar Correo</button>
 
 
 
@@ -100,3 +100,5 @@
 
 </div>
 </div>
+
+<script type="text/javascript" src="assets/js/sendMail.js"></script>
