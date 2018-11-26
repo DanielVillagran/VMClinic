@@ -81,12 +81,35 @@ $data=null;
                   echo "checked";
                 } ?> value="0"> NO
               </label>
-
-            </div>
+            </div>           
+          </div>
+          <div class="form-group">  
+             <label for="inputEmail1" class="col-lg-2 control-label">Observaciones Padre</label>
             <div class="col-md-6">
-            <label for="inputEmail1" class="col-lg-2 control-label">Observaciones Padre</label>
-            
               <input type="text" name="title" value="<?php if($data!=null) echo $data->obspadre; ?>" required class="form-control" id="obsppadre" placeholder="Observaciones Padre">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Antecedentes madre</label>
+            <div class="col-md-6">
+              <label class="checkbox-inline">
+                <input type="radio" id="inlineCheckboxmadre1" name="madre"
+                required <?php if ($user->madre == "1") {
+                  echo "checked";
+                } ?> value="1"> SI
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" id="inlineCheckboxmadre2" name="madre"
+                required <?php if ($user->madre == "0") {
+                  echo "checked";
+                } ?> value="0"> NO
+              </label>
+            </div>           
+          </div>
+          <div class="form-group">  
+             <label for="inputEmail1" class="col-lg-2 control-label">Observaciones Madre</label>
+            <div class="col-md-6">
+              <input type="text" name="title" value="<?php if($data!=null) echo $data->obsmadre; ?>" required class="form-control" id="obspmadre" placeholder="Observaciones Madre">
             </div>
           </div>
 
