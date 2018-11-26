@@ -1,6 +1,7 @@
 <?php 
 $user = PacientData::getById($_GET["id"]); 
-$data = PacientData::getData($_GET["id"]); 
+$data=null;
+//$data = PacientData::getData($_GET["id"]); 
 ?>
 <div class="row">
 	<div class="col-md-12">
