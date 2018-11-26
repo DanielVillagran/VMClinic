@@ -14,7 +14,55 @@ $data = PacientData::getData($_GET["id"]);
           <div class="form-group">
             <label for="inputEmail1" class="col-lg-2 control-label">Religion</label>
             <div class="col-lg-10">
-              <input type="text" name="title" value="<?php echo $data->religion; ?>" required class="form-control" id="Religion" placeholder="Asunto">
+              <input type="text" name="title" value="<?php echo $data->religion; ?>" required class="form-control" id="religion" placeholder="Religion">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Ocupacion</label>
+            <div class="col-lg-10">
+              <input type="text" name="title" value="<?php echo $data->ocupacion; ?>" required class="form-control" id="ocupacion" placeholder="Ocupacion">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Escolaridad</label>
+            <div class="col-lg-10">
+              <input type="text" name="title" value="<?php echo $data->escolaridad; ?>" required class="form-control" id="escolaridad" placeholder="Escolaridad">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Estado civil</label>
+            <div class="col-lg-10">
+              <input type="text" name="title" value="<?php echo $data->estadocivil; ?>" required class="form-control" id="estadocivil" placeholder="Estado civil">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Etnia</label>
+            <div class="col-lg-10">
+              <input type="text" name="title" value="<?php echo $data->etnia; ?>" required class="form-control" id="etnia" placeholder="Etnia">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Peso</label>
+            <div class="col-lg-10">
+              <input type="text" name="title" value="<?php echo $data->peso; ?>" required class="form-control" id="peso" placeholder="Peso">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Talla</label>
+            <div class="col-lg-10">
+              <input type="text" name="title" value="<?php echo $data->talla; ?>" required class="form-control" id="talla" placeholder="Talla">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">Regimen</label>
+            <div class="col-lg-10">
+              <input type="text" name="title" value="<?php echo $data->regimen; ?>" required class="form-control" id="regimen" placeholder="Regimen">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-2 control-label">No de afiliacion</label>
+            <div class="col-lg-10">
+              <input type="text" name="title" value="<?php echo $data->afiliacion; ?>" required class="form-control" id="afiliacion" placeholder="No de afiliacion">
             </div>
           </div>
          
@@ -23,7 +71,8 @@ $data = PacientData::getData($_GET["id"]);
 
       <div class="form-group">
         <div class="col-lg-offset-2">
-          <input type="hidden" name="id" id="id" value="<?php echo $user->id; ?>">
+          <input type="hidden" name="id" id="id" value="<?php echo $data->id; ?>">
+          <input type="hidden" name="id" id="pacient_id" value="<?php echo $user->id; ?>">
           <button type="submit" class="btn btn-default">Actualizar Historia medica</button>
 
         </div>

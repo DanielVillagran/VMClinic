@@ -69,6 +69,12 @@ class PacientData
         $query = Executor::doit($sql);
         return Model::one($query[0], new PacientData());
     }
+    public static function getData($id)
+    {
+        $sql = "select * from historypacient where pacient_id=$id";
+        $query = Executor::doit($sql);
+        return Model::one($query[0], new PacientData());
+    }
 
 
     public static function getAll()
