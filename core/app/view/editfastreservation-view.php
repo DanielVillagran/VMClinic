@@ -1,7 +1,7 @@
 <?php
 $reservation = ReservationData::getById($_GET["id"]);
 //$pacients = PacientData::getAll();
-$medics = MedicData::getAll();
+$medics = MedicData::getAllWithCategory();
 $statuses = StatusData::getAll();
 $payments = PaymentData::getAll();
 $medicines = MedicineData::getAll();
